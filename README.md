@@ -1,4 +1,4 @@
 Scrum-Framework
 ===============
 
-Experimental web application scrum management framework.
+Experimental web application for manage scrum projects.
