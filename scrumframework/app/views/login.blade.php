@@ -28,6 +28,7 @@
 
 		<p>{{ Form::submit('Submit!') }}</p>
 	{{ Form::close() }}
-
+	<!-- LOGOUT BUTTON -->
+	<a href="{{ URL::to('logout') }}">Logout</a>
 </body>
 </html>
