@@ -24,6 +24,10 @@ Route::get('/register', function()
 {
 	return "Hello Register";
 });
+Route::get('/inside', function()
+{
+	return "Hello inside";
+});
 Route::get('/404', function()
 {
 	return App::abort(404);
