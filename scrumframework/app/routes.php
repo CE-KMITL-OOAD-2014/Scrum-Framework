@@ -16,14 +16,9 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/login', function()
-{
-	return "Hello Login";
-});
-Route::get('/register', function()
-{
-	return "Hello Register";
-});
+Route::get('login', array('uses' => 'HomeController@showLogin'));
+Route::post('login', array('uses' => 'HomeController@doLogin'));
+
 Route::get('/inside', function()
 {
 	return "Hello inside";
