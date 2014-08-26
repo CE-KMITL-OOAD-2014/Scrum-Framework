@@ -13,5 +13,18 @@
 
 Route::get('/', function()
 {
-	return View::make('home');
+	return View::make('hello');
+});
+
+Route::get('/login', function()
+{
+	return "Hello Login";
+});
+Route::get('/register', function()
+{
+	return "Hello Register";
+});
+Route::get('/404', function()
+{
+	return App::abort(404);
 });
