@@ -1,14 +1,4 @@
 language: php
-
 php:
-  - 5.3
-  - 5.4
-  - 5.5
-before_install:
-  - cd ~/builds
-  - git clone git://github.com/laravel/laravel.git
-  - mv ./CE-KMITL-OOAD-2014/Scrum-Framework ./laravel/bundles/Scrum-Framework
-  - echo "<?php return array('Scrum-Framework' => array('auto' => true));" > ./laravel/application/bundles.php
-  - cd ./laravel
-
-script: "php artisan test Scrum-Framework"
+  - "5.5"
+  - "5.4"
