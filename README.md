@@ -11,4 +11,6 @@ Scrum is a development framework in which cross-functional teams develop product
 >A Lightweight Guide to the Theory and Practice of Scrum
 >Version 2.0
 
+## Why should you use Scrum-Framework?
+
  
