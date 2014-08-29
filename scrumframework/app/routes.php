@@ -15,3 +15,16 @@ Route::get('/', function()
 {
 	return View::make('home');
 });
+
+Route::get('login', array('uses' => 'HomeController@showLogin'));
+Route::post('login', array('uses' => 'HomeController@doLogin'));
+Route::get('logout', array('uses' => 'HomeController@doLogout'));
+
+Route::get('/inside', function()
+{
+	return "Hello inside";
+});
+Route::get('/404', function()
+{
+	return App::abort(404);
+});

@@ -31,6 +31,8 @@
 							
 			@yield('body')
 			
+			@yield('login')
+			
 		<script src="media/js/jquery-1.11.1.min.js"></script>
 		<script src="media/js/jquery-1.11.1.min.map"></script>		
 		<script src="media/js/bootstrap.min.js"></script>				
