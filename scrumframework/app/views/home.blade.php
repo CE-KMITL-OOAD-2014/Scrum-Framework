@@ -1,14 +1,21 @@
 @extends('layouts.base')
 
 @section('body')
-	<div class="jumbotron" style=" background: url('http://laravel.com/assets/img/header.jpg') center no-repeat #f4726d; height:90%; overflow:hidden position:relative;">
-		<h1 style="color:#fff; text-align:center; ">Scum Framework</h1>
+	<div class="jumbotron" style="margin-top:0px; margin-bottom:0px; background: url('http://laravel.com/assets/img/header.jpg') center no-repeat #f4726d; height:90%; overflow:hidden position:relative;">
+		<h1 style="color:#fff; text-align:center; ">Scrum Framework</h1>
 		<div class="col-md-5"  align="center" style="margin:0 auto; display:block; float:none;">
 			<button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#userSignup" style="width:30%; opacity: 0.9; background-color:#f4726d; color:#fff;">Sign up</button>
 			<button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#userLogin" style="width:30%; opacity: 0.8; background-color:#f4726d; color:#fff; margin-left:5%;">Login</a>
 		</div>
 	</div>	
-
+	<div id="what's_scrum" class="jumbotron" style="background-color:#ecf0f1; margin-top:0px; margin-bottom:0px; height:400px;" >
+		
+	</div>
+	<div id="about" class="jumbotron" style="background-color:#34495e; margin-top:0px; margin-bottom:0px; height:400px;">
+		
+	</div>
+	
+	
 	<div class="modal fade" id="userSignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog  modal-sm">
 		<div class="modal-content">
@@ -17,20 +24,24 @@
 			<h4 class="modal-title" id="myModalLabel">Sign up</h4>
 		  </div>
 			<div class="modal-body">
-				<div class="input-group">
-					<span>Username</span>
-				  <input type="text" class="form-control" placeholder="Username">
-				  </br></br></br>
-					<span>Password</span>
-				   <input type="text" class="form-control" placeholder="Password">
-					</br></br></br>
-					<span>Confirm Password</span>
-					<input type="text" class="form-control" placeholder="Confirm Password">
-				</div>
+				<form role="form">
+				  <div class="form-group">
+					<label for="input-email">Email address</label>
+					<input type="email" class="form-control" id="input-email" placeholder="Enter email">
+				  </div>
+				  <div class="form-group">
+					<label for="input-password">Password</label>
+					<input type="password" class="form-control" id="input-password" placeholder="Password">
+				  </div>
+				<div class="form-group">
+					<label for="input-confirmpassword">Confirm Password</label>
+					<input type="password" class="form-control" id="input-confirmpassword" placeholder="Confirm Password">
+				  </div>				  		
+				</form>
 			</div>			
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-primary">Sign Up</button>
-			<button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>			
+			<button type="submit" class="btn" style="background-color:#f4726d; color:#fff;">Sign Up</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>			
 		  </div>
 		</div>
 	  </div>
@@ -44,17 +55,19 @@
 			<h4 class="modal-title" id="myModalLabel">Log in</h4>
 		  </div>
 		  <div class="modal-body">
-			<div class="input-group">
-					<span>Username</span>
-				  <input type="text" class="form-control" placeholder="Username">
-				  </br></br></br>
-					<span>Password</span>
-				   <input type="text" class="form-control" placeholder="Password">
-					</br></br></br>
-				</div>
+			<form role="form">
+				  <div class="form-group">
+					<label for="input-email">Email address</label>
+					<input type="email" class="form-control" id="input-email" placeholder="Enter email">
+				  </div>
+				  <div class="form-group">
+					<label for="input-password">Password</label>
+					<input type="password" class="form-control" id="input-password" placeholder="Password">
+				  </div>							  		
+				</form>
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-primary">Log in</button>
+			<button type="button" class="btn" style="background-color:#f4726d; color:#fff;">Log in</button>
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>		
 		  </div>
 		</div>
