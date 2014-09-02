@@ -2,7 +2,7 @@
 ========================
 
 ## Selected topic
-----------------
+
 **Scrum Framework**
 
 ## Group Members:
