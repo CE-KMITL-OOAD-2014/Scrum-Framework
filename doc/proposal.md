@@ -1,9 +1,9 @@
 ﻿Proposal Cloud Computing
 ========================
 
-## Selected topic
+### Selected topic :
 
-**Scrum Framework**
+> Scrum Framework
 
 ## Group Members:
 1. ชานน จรัสสุทธิกุล รหัสนักศึกษา 55010280
