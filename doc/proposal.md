@@ -1,4 +1,4 @@
-﻿Proposal Cloud Computing
+﻿Project Proposal
 ========================
 
 ### Selected topic :
