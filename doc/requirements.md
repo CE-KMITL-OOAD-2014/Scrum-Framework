@@ -12,3 +12,22 @@ Functional requirements
  - สามารถแสดงความคิดเห็นใน ส่วนต่าง ๆ ของระบบได้
  
 Non-Functional requirements
+ - 
+ - 
+ - 
+ - 
+ - 
+
+Use case diagram
+
+[]
+
+Use case specifications
+
+1.
+2.
+
+Activity diagrams
+
+1.
+2.
