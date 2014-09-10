@@ -50,7 +50,7 @@ Requirements
      - C1. Scrum Master หรือสมาชิกในทีมกดปุ่มเพื่อทำการแก้ไข
      - C2. Scrum Master หรือสมาชิกในทีม ทำการแก้ไขข้อมูล หรือเปลี่ยนสถานะใหม่
      - C3. Scrum Master หรือสมาชิกในทีม บันทึกข้อมูล Sprint Backlog สู่ระบบ
- + **เงื่อนไขที่ 2 :** Scrum Master หรือสมาชิกในทีมต้องการลบ Sprint Backlog
+   + **เงื่อนไขที่ 2 :** Scrum Master หรือสมาชิกในทีมต้องการลบ Sprint Backlog
      - C1. Scrum Master หรือสมาชิกในทีม กดปุ่มลบ
      - C2. Scrum Master หรือสมาชิกในทีม ทำการยืนยันการลบข้อมูลจากระบบ
 
