@@ -42,9 +42,9 @@ Requirements
  + **Limitations:** ไม่สามารถเพิ่มกระดานได้นอกเหนือไปจาก To Do, In Progress, Done
  + **Assumptions:** Scrum Master ทราบว่าจะเลือก Product Backlog ใดเพื่อนำมาใช้กำหนดงานใน Sprint
  + **Primary Scenario:**
-   A. Scrum Master และสมาชิกในทีมทำการเลือก Product Backlog มาหนึ่งข้อเพื่อกำหนดงานใน Sprint ปัจจุบัน
-   B. Scrum Master และสมาชิกในทีมทำการเลือกและมอบหมายแต่ละ Sprint Backlog ให้สมาชิกในทีมแต่ละคน
-   C. Scrum Master หรือสมาชิกในทีม กำหนดสถานะของแต่ละ Sprint Backlog ได้
+   - A. Scrum Master และสมาชิกในทีมทำการเลือก Product Backlog มาหนึ่งข้อเพื่อกำหนดงานใน Sprint ปัจจุบัน
+   - B. Scrum Master และสมาชิกในทีมทำการเลือกและมอบหมายแต่ละ Sprint Backlog ให้สมาชิกในทีมแต่ละคน
+   - C. Scrum Master หรือสมาชิกในทีม กำหนดสถานะของแต่ละ Sprint Backlog ได้
  + **Alternate Scenarios:**
    + **เงื่อนไขที่ 1 :** Scrum Master หรือสมาชิกในทีมต้องการแก้ไข Sprint Backlog
      - C1. Scrum Master หรือสมาชิกในทีมกดปุ่มเพื่อทำการแก้ไข
