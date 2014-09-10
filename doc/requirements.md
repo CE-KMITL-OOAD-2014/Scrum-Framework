@@ -34,5 +34,8 @@ Requirements
 
 ## Activity diagrams
 
+### Use case : ระบบบริหารจัดการทีม (Members Management System)
 ![TeamManagement](http://i.imgur.com/OWaxyu0.png)
+
+### Use case : ระบบแสดงความคิดเห็น (Comment System)
 ![CommentSystem](http://i.imgur.com/PutkimV.png)
