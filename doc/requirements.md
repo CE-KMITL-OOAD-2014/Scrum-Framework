@@ -26,6 +26,7 @@ Requirements
 ## Use case diagram
 
 ![gopherTest](http://i.imgur.com/Qy7slOH.png)
+
 ## Use case specifications
 
 1.
@@ -33,11 +34,4 @@ Requirements
 
 ## Activity diagrams
 
-Test Table
-
-| Username        |            | Created By :  |          |
-| ------------- |:-------------:| -----:|   |
-| col 3 is      | right-aligned | $1600 |   |
-| col 2 is      | centered      |   $12 |   |
-| zebra stripes | are neat      |    $1 |   |
-
+![TeamManagement](http://i.imgur.com/Qy7slOH.png)
