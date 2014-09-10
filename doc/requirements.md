@@ -34,6 +34,7 @@ Requirements
 ## Activity diagrams
 
 Test Table
+
 | Username        |            | Created By :  |          |
 | ------------- |:-------------:| -----:|   |
 | col 3 is      | right-aligned | $1600 |   |
