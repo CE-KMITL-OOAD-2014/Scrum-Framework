@@ -35,3 +35,4 @@ Requirements
 ## Activity diagrams
 
 ![TeamManagement](http://i.imgur.com/OWaxyu0.png)
+![CommentSystem](http://i.imgur.com/PutkimV.png)
