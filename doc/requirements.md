@@ -29,13 +29,35 @@ Requirements
 
 ## Use case specifications
 
-1.
-2.
+#### **1. Use case name:** ระบบบริหารจัดการ Sprint (Sprint Backlog Management)
+ + **Use case purpose:** ให้หัวหน้าทีมในการทำ Scrum (Scrum Master) สามารถที่จะเลือก Product Backlog ที่มีลำดับความสำคัญสูงมาใช้ในการกำหนดงานย่อย (Sprint Backlog) ในแต่ละรอบของการทำงาน (Sprint) ได้ และสร้าง Sprint Backlog ตามสถานะของการทำงานได้
+ + **Actors:** Scrum Master, สมาชิกในทีม (Team members)
+ + **Pre-conditions:** 
+   1. Scrum Master ผ่านการยืนยันตัวตน (Authentication) เรียบร้อยแล้ว
+   2. Scrum Master มีสิทธิ์ในการดูแลที่โครงการนั้น ๆ
+      3. ต้องมี Product Backlog กำหนดไว้ล่วงหน้าอย่างน้อย 1 หัวข้อ
+ + **Post-conditions:**
+   1. สมาชิกในทีมมีงานที่ได้รับมอบหมาย
+   2. ทีมสามารถเริ่มต้นในการทำ Sprint ได้
+ + **Limitations:** ไม่สามารถเพิ่มกระดานได้นอกเหนือไปจาก To Do, In Progress, Done
+ + **Assumptions:** Scrum Master ทราบว่าจะเลือก Product Backlog ใดเพื่อนำมาใช้กำหนดงานใน Sprint
+ + **Primary Scenario:**
+   A. Scrum Master และสมาชิกในทีมทำการเลือก Product Backlog มาหนึ่งข้อเพื่อกำหนดงานใน Sprint ปัจจุบัน
+   B. Scrum Master และสมาชิกในทีมทำการเลือกและมอบหมายแต่ละ Sprint Backlog ให้สมาชิกในทีมแต่ละคน
+   C. Scrum Master หรือสมาชิกในทีม กำหนดสถานะของแต่ละ Sprint Backlog ได้
+ + **Alternate Scenarios:**
+   + **เงื่อนไขที่ 1 :** Scrum Master หรือสมาชิกในทีมต้องการแก้ไข Sprint Backlog
+     - C1. Scrum Master หรือสมาชิกในทีมกดปุ่มเพื่อทำการแก้ไข
+     - C2. Scrum Master หรือสมาชิกในทีม ทำการแก้ไขข้อมูล หรือเปลี่ยนสถานะใหม่
+     - C3. Scrum Master หรือสมาชิกในทีม บันทึกข้อมูล Sprint Backlog สู่ระบบ
+ + **เงื่อนไขที่ 2 :** Scrum Master หรือสมาชิกในทีมต้องการลบ Sprint Backlog
+     - C1. Scrum Master หรือสมาชิกในทีม กดปุ่มลบ
+     - C2. Scrum Master หรือสมาชิกในทีม ทำการยืนยันการลบข้อมูลจากระบบ
 
 ## Activity diagrams
 
-### Use case : ระบบบริหารจัดการทีม (Members Management System)
+#### Use case : ระบบบริหารจัดการทีม (Members Management System)
 ![TeamManagement](http://i.imgur.com/OWaxyu0.png)
 
-### Use case : ระบบแสดงความคิดเห็น (Comment System)
+#### Use case : ระบบแสดงความคิดเห็น (Comment System)
 ![CommentSystem](http://i.imgur.com/PutkimV.png)
