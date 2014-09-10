@@ -25,11 +25,11 @@ Requirements
 
 ## Use case diagram
 
-![gopherTest](http://i.imgur.com/Qy7slOH.png)
+![UseCaseDiagram](http://i.imgur.com/Qy7slOH.png)
 
 ## Use case specifications
 
-#### **1. Use case name:** ระบบบริหารจัดการ Sprint (Sprint Backlog Management)
+#### **1. Use case name:** ระบบบริหารจัดการ Sprint Backlog (Sprint Backlog Management)
  + **Use case purpose:** ให้หัวหน้าทีมในการทำ Scrum (Scrum Master) สามารถที่จะเลือก Product Backlog ที่มีลำดับความสำคัญสูงมาใช้ในการกำหนดงานย่อย (Sprint Backlog) ในแต่ละรอบของการทำงาน (Sprint) ได้ และสร้าง Sprint Backlog ตามสถานะของการทำงานได้
  + **Actors:** Scrum Master, สมาชิกในทีม (Team members)
  + **Pre-conditions:** 
@@ -53,6 +53,31 @@ Requirements
    + **เงื่อนไขที่ 2 :** Scrum Master หรือสมาชิกในทีมต้องการลบ Sprint Backlog
      - C1. Scrum Master หรือสมาชิกในทีม กดปุ่มลบ
      - C2. Scrum Master หรือสมาชิกในทีม ทำการยืนยันการลบข้อมูลจากระบบ
+
+#### **2. Use case name:** ระบบบริหารจัดการ Product Backlog (Product Backlog Management)
+ + **Use case purpose:** ให้ผู้ว่าจ้างงาน (Product Owner) สร้างรายการความต้องการของลูกค้า (Product Backlog) จัดลำดับความสำคัญของรายการความต้องการ และสามารถลบรายการความต้องการได้
+ + **Actors:** Product Owner
+ + **Pre-conditions:** 
+   1. Product Owner ต้องมีความต้องการ
+   2. Product Owner ต้องผ่านการยืนยันตัวตน (Authentication) เรียบร้อยแล้ว
+      3. ต้องถูก Scrum Master เชิญเข้าร่วมทีม และมอบสิทธิ์ในการเป็น Product Owner
+ + **Post-conditions:**
+   1. Product Backlog ถูกบันทึกในระบบ
+   2. Product Backlog ถูกแสดงผล
+ + **Limitations:** ไม่มีส่วนสำหรับจัดการกับ Product Backlog โดยเฉพาะ
+ + **Assumptions:** Product Owner ทราบถึงรายการความต้องการชัดเจนและสามาถถ่ายทอดเป็นข้อความได้อย่างชัดเจน
+ + **Primary Scenario:**
+   - A. Product Owner เข้าสู่หน้าต่างเพิ่ม Product Backlog
+   - B. Product Owner ทำการกรอก Product Backlog
+   - C. Product Owner บันทึกข้อมูล Product Backlog สู่ระบบ
+ + **Alternate Scenarios:**
+   + **เงื่อนไขที่ 1 :** Product Owner ต้องการแก้ไข Product Backlog
+     - C1. Product Owner กดปุ่มทำการแก้ไข
+     - C2. Product Owner ทำการแก้ไขข้อมูลใหม่
+     - C3. Product Owner บันทึกข้อมูล Product Backlog สู่ระบบ
+   + **เงื่อนไขที่ 2 :** Product Owner ต้องการลบ Product Backlog
+     - C1. Product Owner กดปุ่มลบ
+     - C2. Product Owner ทำการยืนยันการลบข้อมูลออกจากระบบ
 
 ## Activity diagrams
 
