@@ -34,4 +34,4 @@ Requirements
 
 ## Activity diagrams
 
-![TeamManagement](http://i.imgur.com/Qy7slOH.png)
+![TeamManagement](http://i.imgur.com/OWaxyu0.png)
