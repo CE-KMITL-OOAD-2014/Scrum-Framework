@@ -46,11 +46,11 @@ Requirements
    - B. Scrum Master และสมาชิกในทีมทำการเลือกและมอบหมายแต่ละ Sprint Backlog ให้สมาชิกในทีมแต่ละคน
    - C. Scrum Master หรือสมาชิกในทีม กำหนดสถานะของแต่ละ Sprint Backlog ได้
  + **Alternate Scenarios:**
-   + **เงื่อนไขที่ 1 :** Scrum Master หรือสมาชิกในทีมต้องการแก้ไข Sprint Backlog
+   - **เงื่อนไขที่ 1 :** Scrum Master หรือสมาชิกในทีมต้องการแก้ไข Sprint Backlog
      - C1. Scrum Master หรือสมาชิกในทีมกดปุ่มเพื่อทำการแก้ไข
      - C2. Scrum Master หรือสมาชิกในทีม ทำการแก้ไขข้อมูล หรือเปลี่ยนสถานะใหม่
      - C3. Scrum Master หรือสมาชิกในทีม บันทึกข้อมูล Sprint Backlog สู่ระบบ
-   + **เงื่อนไขที่ 2 :** Scrum Master หรือสมาชิกในทีมต้องการลบ Sprint Backlog
+   - **เงื่อนไขที่ 2 :** Scrum Master หรือสมาชิกในทีมต้องการลบ Sprint Backlog
      - C1. Scrum Master หรือสมาชิกในทีม กดปุ่มลบ
      - C2. Scrum Master หรือสมาชิกในทีม ทำการยืนยันการลบข้อมูลจากระบบ
 
@@ -71,11 +71,11 @@ Requirements
    - B. Product Owner ทำการกรอก Product Backlog
    - C. Product Owner บันทึกข้อมูล Product Backlog สู่ระบบ
  + **Alternate Scenarios:**
-   + **เงื่อนไขที่ 1 :** Product Owner ต้องการแก้ไข Product Backlog
+   - **เงื่อนไขที่ 1 :** Product Owner ต้องการแก้ไข Product Backlog
      - C1. Product Owner กดปุ่มทำการแก้ไข
      - C2. Product Owner ทำการแก้ไขข้อมูลใหม่
      - C3. Product Owner บันทึกข้อมูล Product Backlog สู่ระบบ
-   + **เงื่อนไขที่ 2 :** Product Owner ต้องการลบ Product Backlog
+   - **เงื่อนไขที่ 2 :** Product Owner ต้องการลบ Product Backlog
      - C1. Product Owner กดปุ่มลบ
      - C2. Product Owner ทำการยืนยันการลบข้อมูลออกจากระบบ
 
