@@ -25,7 +25,7 @@ Requirements
 
 ## Use case diagram
 
-![UseCaseDiagram](http://i.imgur.com/Qy7slOH.png)
+![UseCaseDiagram](http://i.imgur.com/NVbCwUR.png)
 
 ## Use case specifications
 
