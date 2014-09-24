@@ -96,6 +96,10 @@
 
 ![ClassDiagram_rev5](http://i.imgur.com/frcLbCF.png)
 
+ **รายละเอียด Class diagram**
+ จาก diagram ข้างต้น User จะมี Interface User Repo ไว้เข้าถึงฐานข้อมูลโดยไม่ต้องผ่าน Service และ User สามารถสร้าง Team เพื่อไปเชื่อมต่อกับ Service ต่างๆ ดังต่อไปนี้:
+ProjectManagementService, TeamManagementService, UserStoryManagementService, SprintManagementService, SprintbacklogManagementService, และ CommentService ซึ่งในแต่ละ Service จะมีการเรียกใช้ Repository ของตนเองเพื่อดึงข้อมูลจากฐานข้อมูล และ แต่ละ Service จะมี object model เป็นเองตนเองด้วย เพื่ออธิบายลักษณะของ object ที่สร้างขึ้นจากการเรียกใช้ Service นั้นๆว่ามีองค์ประกอบอะไรบ้าง ตัวอย่างเช่น Team จะติดต่อกับ SprintBacklogManagementService เพื่อใช้ Service ของ SprintBacklogManagementService เช่น การสร้าง SprintBacklog และ จะมี SprintBacklog เป็น object model ซึ่งกล่าวถึงลักษณะของ SprintBacklog ว่ามี comment ต่าง ๆ ใน Sprintbacklog, ข้อความของ SprintBacklog และ มีสถานะของ Sprintbacklog เป็นต้น
+
 ###Deployment
  - ระบบนี้จะใช้ Software และ Technology ดังต่อไปนี้:
      -  Infrastructure:
