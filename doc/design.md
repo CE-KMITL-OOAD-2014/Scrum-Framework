@@ -94,7 +94,7 @@
 
 ###Domain classes
 
-![ClassDiagram](http://i.imgur.com/Trr7V2B.png)
+![ClassDiagram_rev5](http://i.imgur.com/frcLbCF.png)
 
 ###Deployment
  - ระบบนี้จะใช้ Software และ Technology ดังต่อไปนี้:
@@ -118,5 +118,5 @@
 
 ##Implementation Plan
 
-![ProductBacklog](http://i.imgur.com/cfATqJ2.png)
+![ProductBacklog](http://i.imgur.com/jHqvR2f.png)
 
