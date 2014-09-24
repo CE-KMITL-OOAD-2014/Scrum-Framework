@@ -104,17 +104,17 @@
 
 ###Deployment
  - ระบบนี้จะใช้ Software และ Technology ดังต่อไปนี้:
-     -  Infrastructure:
+     -  **Infrastructure:**
         -   Ubuntu 14.04 LTS
         -   Nginx Web Server
         -   Microsoft Azure Load Balancer
         -   Microsoft Azure DNS Server
-     -  Back-end
+     -  **Back-end**
         -   PHP 5.5
         -   MongoDB: สำหรับเก็บข้อมูลใน sprint backlog เป็นรูปแบบ document และใช้ในการ  backup และ restore ข้อมูล
         -   Laravel: ใช้เพื่อทำให้ง่ายต่อการพัฒนาเว็บแอพพลิเคชัน โดยใช้ eloquent ORM ในการติดต่อฐานข้อมูล
         -   Composer - เป็นตัวจัดการกับ Dependency ของ PHP
-     -  Front-end
+     -  **Front-end**
         -   AngularJS: ควบคุมการท างานของส่วน user interface ให้มีการตอบสนองกับผู้ใช้ในเชิงตรรกะ เช่นการ ย้าย sprint backlog ไปตามกระดานต่าง ๆ
         -   Twitter Bootstrap: ตกแต่ง user interface หน้าเว็บไซต์ รวมถึงการท าให้เว็บไซต์นั้นรองรับการแสดงผลทั้งบน Mobile และ Desktop (responsivedesign)
         -   HTML5: เป็นโครงสร้างของ User Interface เบื้องต้นของระบบ
