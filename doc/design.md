@@ -1,9 +1,11 @@
 #M2: Architectural Design, UML diagrams & Implementation Plan
 
-
 **ชื่อโปรเจค** : Scrum Framework
+
 **ชื่อกลุ่ม** : Deadline-Driven-Development
+
 **ชื่อสมาชิกในกลุ่ม**
+
 		1. นายชานน จรัสสุทธิกุล รหัสนักศึกษา 55010280
 		2.  นายณัฐพงศ์ อมรบัญชรเวช รหัสนักศึกษา 55010371
 
