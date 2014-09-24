@@ -82,7 +82,7 @@
 
 ###Domain classes
 
-![ClassDiagram](http://i.imgur.com/HoFlZLn.png)
+![ClassDiagram](http://i.imgur.com/Trr7V2B.png)
 
 
 ##Implementation Plan
