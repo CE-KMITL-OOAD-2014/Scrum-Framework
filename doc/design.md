@@ -97,7 +97,24 @@
 ![ClassDiagram](http://i.imgur.com/Trr7V2B.png)
 
 ###Deployment
-
+ - ระบบนี้จะใช้ Software และ Technology ดังต่อไปนี้:
+     -  Infrastructure:
+        -   Ubuntu 14.04 LTS
+        -   Nginx Web Server
+        -   Microsoft Azure Load Balancer
+        -   Microsoft Azure DNS Server
+     -  Back-end
+        -   PHP 5.5
+        -   MongoDB
+        -   Laravel - PHP framework
+        -   Composer - PHP Dependency manager
+     -  Front-end
+        -   AngularJS
+        -   Twitter Bootstrap
+        -   HTML5
+        -   CSS3
+ - โดย Software ในส่วนของ Application หลักจะทำงานบน VM สองเครื่อง (IP:168.63.175.88, 168.63.175.57)
+  และมี database เริ่มต้นเป็นจำนวน 3 instance
 
 ##Implementation Plan
 
