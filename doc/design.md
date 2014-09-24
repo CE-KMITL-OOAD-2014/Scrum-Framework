@@ -122,5 +122,8 @@
 
 ##Implementation Plan
 
-![ProductBacklog_rev3](http://i.imgur.com/iKpa6uH.png)
+![GanttChart_Infra](http://i.imgur.com/iWFZtT5)
 
+![GanttChart_App](http://i.imgur.com/6P28tXG)
+
+![ProductBacklog_rev3](http://i.imgur.com/iKpa6uH.png)
