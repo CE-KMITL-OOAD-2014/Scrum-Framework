@@ -79,9 +79,11 @@
 ใช้เพื่อเก็บความคิดเห็นทั้งหมดจาก Sprint Backlog ที่มีการเพิ่มเข้ามาในระบบ
 
 ####Sequence diagrams
-[UserCreatesSprintBacklog](http://i.imgur.com/26zCj7j.png)
-[UserCreatesProject](http://i.imgur.com/VXkT4jw.png)
-[UserComments](http://i.imgur.com/gf4CZLw.png)
+
+![UserCreatesSprintBacklog](http://i.imgur.com/26zCj7j.png)
+![UserCreatesProject](http://i.imgur.com/VXkT4jw.png)
+![UserComments](http://i.imgur.com/gf4CZLw.png)
+
 ###Domain classes
 
 ![ClassDiagram](http://i.imgur.com/Trr7V2B.png)
