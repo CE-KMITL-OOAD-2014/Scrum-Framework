@@ -80,8 +80,13 @@
 
 ####Sequence diagrams
 
+1. สร้าง Sprint Backlog
 ![UserCreatesSprintBacklog](http://i.imgur.com/26zCj7j.png)
+
+2. สร้างโปรเจกต์
 ![UserCreatesProject](http://i.imgur.com/VXkT4jw.png)
+
+3. เพิ่มความคิดเห็น
 ![UserComments](http://i.imgur.com/gf4CZLw.png)
 
 ###Domain classes
