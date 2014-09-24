@@ -111,14 +111,14 @@
         -   Microsoft Azure DNS Server
      -  Back-end
         -   PHP 5.5
-        -   MongoDB
-        -   Laravel - PHP framework
-        -   Composer - PHP Dependency manager
+        -   MongoDB: สำหรับเก็บข้อมูลใน sprint backlog เป็นรูปแบบ document และใช้ในการ  backup และ restore ข้อมูล
+        -   Laravel: ใช้เพื่อทำให้ง่ายต่อการพัฒนาเว็บแอพพลิเคชัน โดยใช้ eloquent ORM ในการติดต่อฐานข้อมูล
+        -   Composer - เป็นตัวจัดการกับ Dependency ของ PHP
      -  Front-end
-        -   AngularJS
-        -   Twitter Bootstrap
-        -   HTML5
-        -   CSS3
+        -   AngularJS: ควบคุมการท างานของส่วน user interface ให้มีการตอบสนองกับผู้ใช้ในเชิงตรรกะ เช่นการ ย้าย sprint backlog ไปตามกระดานต่าง ๆ
+        -   Twitter Bootstrap: ตกแต่ง user interface หน้าเว็บไซต์ รวมถึงการท าให้เว็บไซต์นั้นรองรับการแสดงผลทั้งบน Mobile และ Desktop (responsivedesign)
+        -   HTML5: เป็นโครงสร้างของ User Interface เบื้องต้นของระบบ
+        -   CSS3: ใช้ในการตกแต่ง User Interface ให้สวยงาม
  - โดย Software ในส่วนของ Application หลักจะทำงานบน VM สองเครื่อง (IP:168.63.175.88, 168.63.175.57)
   และมี database เริ่มต้นเป็นจำนวน 3 instance
 
