@@ -23,7 +23,6 @@
 						<li><a href="#">What's Scrum Framework</a></li>						
 						<li><a href="#">About</a></li>
 					  </ul>
-							 
 					</div><!-- /.navbar-collapse -->
 					
 				</div><!-- /.container-fluid -->
@@ -35,6 +34,7 @@
 			
 		<script src="media/js/jquery-1.11.1.min.js"></script>
 		<script src="media/js/jquery-1.11.1.min.map"></script>		
-		<script src="media/js/bootstrap.min.js"></script>				
+		<script src="media/js/bootstrap.min.js"></script>
+		<script src="media/js/angularjs/angular.min.js"></script>				
 	</body>
 </html>
