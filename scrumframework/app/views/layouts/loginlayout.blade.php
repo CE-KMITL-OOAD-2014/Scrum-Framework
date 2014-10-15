@@ -1,7 +1,18 @@
-<html>
+<html ng-app="{{ 1==2 ? 'aaa' : 'todoApp'}}">
 	<head>
-	<link rel="stylesheet" type="text/css" href="media/css/bootstrap.min.css">	
-	<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="media/css/bootstrap.min.css">
+	<style>
+		.pink{
+			color: #fff;
+			background-color:#F4726D;
+		}
+		.pink:hover{
+			color: #fff;
+			background-color:#FA726D;
+		}
+	</style>
+	</head>
 	<body>
 			<nav class="navbar navbar-default" role="navigation" style="margin-bottom:0px;">
 				<div class="container-fluid">
@@ -31,7 +42,7 @@
 					            <li><a href="#">Board2</a></li>
 					            <li><a href="#">Board3</a></li>
 					            <li class="divider"></li>
-					            <center><button type="button" class="btn btn-success"  data-toggle="modal" data-target="#myModal">Add new board</button></center>
+					            <center><button type="button" class="btn pink"  data-toggle="modal" data-target="#myModal">Add new board</button></center>
 					          </ul>
 					          <li><a>Username</a></li>
 					        </li>
@@ -58,19 +69,21 @@
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="submit" class="btn btn-success">Create</button>
+			        <button type="submit" class="btn pink">Create</button>
 			      </div>
 			    </div>
 			  </div>
 			</div>
 							
+			@yield('slidebar')
+			
 			@yield('body')
-			
-			@yield('login')
-			
+
 		<script src="media/js/jquery-1.11.1.min.js"></script>
-		<script src="media/js/jquery-1.11.1.min.map"></script>		
+		<script src="media/js/jquery-ui.min.js"></script>		
 		<script src="media/js/bootstrap.min.js"></script>
-		<script src="media/js/angularjs/angular.min.js"></script>				
+		<script src="media/js/angularjs/angular.min.js"></script>
+		<script src="media/js/angularjs/angular-dragdrop.min.js"></script>
+		<script src="media/js/angularjs/todo.js"></script>
 	</body>
 </html>
