@@ -11,10 +11,19 @@
 |
 */
 
+/*
 Route::get('/', function()
 {
 	return View::make('home');
 });
+*/
+
+//Blade::setContentTags('<%', '%>');				// for variables and all things Blade
+//Blade::setEscapedContentTags('<%%', '%%>'); 	// for escaped data
+
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showhome'));
+
+Route::get('/logedin', array('as' => 'logedin', 'uses' => 'HomeController@showLogin'));
 
 Route::get('login', array('uses' => 'HomeController@showLogin'));
 Route::post('login', array('uses' => 'HomeController@doLogin'));
