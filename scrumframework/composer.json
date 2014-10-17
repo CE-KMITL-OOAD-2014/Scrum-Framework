@@ -6,7 +6,7 @@
 	"time": "2014-08-21",
 	"license": "CE-KMITL",
 	"require": {
-		"ScrumFramework/scrum": "1.0.*"
+		"laravel/framework": "4.2.*"
 	},
 	"autoload": {
 		"classmap": [
