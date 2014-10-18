@@ -15,7 +15,7 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function showHome()
 	{
 		return View::make('home');
 	}
@@ -54,15 +54,15 @@ class HomeController extends BaseController {
 				// for now we'll just echo success (even though echoing in a controller is bad)
 				echo 'SUCCESS!';
 
-			} else {	 	
+			} else {
 
-				// validation not successful, send back to form	
+				// validation not successful, send back to form
 				return Redirect::to('login');
 
 			}
 
 		}
-		
+
 	}
 	public function doLogout()
 	{

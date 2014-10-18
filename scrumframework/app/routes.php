@@ -21,7 +21,7 @@ Route::get('/', function()
 //Blade::setContentTags('<%', '%>');				// for variables and all things Blade
 //Blade::setEscapedContentTags('<%%', '%%>'); 	// for escaped data
 
-Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showhome'));
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showHome'));
 
 Route::get('/logedin', array('as' => 'logedin', 'uses' => 'HomeController@showLogin'));
 
