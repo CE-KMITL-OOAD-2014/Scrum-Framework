@@ -33,7 +33,8 @@ class FormController extends BaseController
         // redirect ----------------------------------------
         // redirect our user back to the form so they can do it all over again
         //return Redirect::to('/');
-        return 'Data was saved';        
+        return 'Data was saved';
+        //return Response::make('User created! Hurray!');        
         }
     }
 }

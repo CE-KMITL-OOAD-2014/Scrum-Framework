@@ -25,12 +25,27 @@ Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showhome'));
 
 //Route::get('/taskboard', array('as' => 'logedin', 'uses' => 'HomeController@showLogin'));
 
+Route::get('/taskboard', array(
+	'before' => 'auth',
+	function()
+	{
+	return View::make('login');
+	}
+));
+
 Route::post('/taskboard', function(){
 	$credentials = Input::only('email', 'password');
+	$remember = Input::has('remember');
 	if (Auth::attempt($credentials)) {
 	return Redirect::intended('taskboard');
 	}
 	return Redirect::to('/');
+});
+
+Route::get('/logout', function()
+{
+Auth::logout();
+return Response::make('You are now logged out. :(');
 });
 /*
 Route::post('/login', function()
