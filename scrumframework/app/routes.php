@@ -23,9 +23,7 @@ Route::get('/', function()
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showHome'));
 
-Route::get('/logedin', array('as' => 'logedin', 'uses' => 'HomeController@showLogin'));
-
-Route::get('login', array('uses' => 'HomeController@showLogin'));
+Route::get('taskboard', array('uses' => 'HomeController@showTaskboard'));
 Route::post('login', array('uses' => 'HomeController@doLogin'));
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
