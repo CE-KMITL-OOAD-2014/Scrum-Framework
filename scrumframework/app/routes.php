@@ -23,8 +23,15 @@ Route::get('/', function()
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showhome'));
 
-Route::get('/taskboard', array('as' => 'logedin', 'uses' => 'HomeController@showLogin'));
+//Route::get('/taskboard', array('as' => 'logedin', 'uses' => 'HomeController@showLogin'));
 
+Route::post('/taskboard', function(){
+	$credentials = Input::only('email', 'password');
+	if (Auth::attempt($credentials)) {
+	return Redirect::intended('taskboard');
+	}
+	return Redirect::to('/');
+});
 /*
 Route::post('/login', function()
 {
