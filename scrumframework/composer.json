@@ -6,7 +6,8 @@
 	"time": "2014-08-21",
 	"license": "CE-KMITL",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"jenssegers/mongodb": "*"
 	},
 	"autoload": {
 		"classmap": [

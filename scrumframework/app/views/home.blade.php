@@ -21,7 +21,7 @@
 	<div class="modal fade" id="userSignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog  modal-sm">
 			<div class="modal-content">
-				<form role="form" method="post" action="{{ url('/login') }}">
+				<form role="form" method="post" action="{{ url('/signup') }}">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 						<h4 class="modal-title" id="myModalLabel">Sign up</h4>
@@ -52,26 +52,28 @@
 	<div class="modal fade" id="userLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
-		  		<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title" id="myModalLabel">Log in</h4>
-		  		</div>
-		  		<div class="modal-body">
-					<form role="form">
-				  		<div class="form-group">
-							<label for="input-email">Email address</label>
-							<input type="email" class="form-control" id="input-email" placeholder="Enter email">
-						</div>
-						<div class="form-group">
-							<label for="input-password">Password</label>
-							<input type="password" class="form-control" id="input-password" placeholder="Password">
-				  		</div>							  		
-					</form>
-		  		</div>
-				<div class="modal-footer">
-					<button type="button" class="btn" style="background-color:#f4726d; color:#fff;">Log in</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>		
-				</div>
+				<form role="form">
+			  		<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="myModalLabel">Log in</h4>
+			  		</div>
+			  		<div class="modal-body">
+						<form role="form">
+					  		<div class="form-group">
+								<label for="input-email">Email address</label>
+								<input type="email" class="form-control" id="input-email" placeholder="Enter email">
+							</div>
+							<div class="form-group">
+								<label for="input-password">Password</label>
+								<input type="password" class="form-control" id="input-password" placeholder="Password">
+					  		</div>							  		
+						</form>
+			  		</div>
+					<div class="modal-footer">
+						<button type="button" class="btn" style="background-color:#f4726d; color:#fff;">Log in</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>		
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

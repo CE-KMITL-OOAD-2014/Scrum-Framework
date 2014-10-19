@@ -26,7 +26,8 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+//	'default' => 'mysql',
+	'default' => 'mongodb',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -45,6 +46,15 @@ return array(
 	*/
 
 	'connections' => array(
+
+		'mongodb' => array(
+	    'driver'   => 'mongodb',
+	    'host'     => 'localhost',
+	    'port'     => 27017,
+	    'username' => 'root',
+	    'password' => 'ceddd',
+	    'database' => 'scrumdb'
+		),
 
 		'sqlite' => array(
 			'driver'   => 'sqlite',

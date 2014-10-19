@@ -23,9 +23,9 @@ Route::get('/', function()
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showhome'));
 
-Route::get('/logedin', array('as' => 'logedin', 'uses' => 'HomeController@showLogin'));
+Route::get('/taskboard', array('as' => 'logedin', 'uses' => 'HomeController@showLogin'));
 
-
+/*
 Route::post('/login', function()
 {
 	$data = Input::all();
@@ -46,7 +46,7 @@ Route::post('/login', function()
 	} else {
 		// validation successful ---------------------------
 
-/*
+
 		$user = new User;
 		$user->email    = Input::get('email');
 		$user->password = Hash::make(Input::get('password'));
@@ -56,18 +56,18 @@ Route::post('/login', function()
 
 		// redirect ----------------------------------------
 		// redirect our user back to the form so they can do it all over again
-		return Redirect::to('/');
-*/
-		 return 'Data was saved';		
+		//return Redirect::to('/');
+		return 'Data was saved';		
 	}
 });
+*/
 
-/*
-Route::post('/login', array('before' => 'csrf', function(){
+
+Route::post('/signup', function(){
 	$form = new FormController;
 	return $form->index();
-}));
-*/
+});
+
 //Route::post('login', array('uses' => 'HomeController@showLogin'));
 //Route::post('login', array('uses' => 'HomeController@doLogin'));
 //Route::get('logout', array('uses' => 'HomeController@doLogout'));
