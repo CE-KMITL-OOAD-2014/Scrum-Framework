@@ -29,23 +29,22 @@ Route::get('/taskboard', array(
 	'before' => 'auth',
 	function()
 	{
-	return View::make('login');
+		$email = Auth::user()->email; 
+		Session::flash('email',$email);
+		return View::make('login')->withInput(Input::except('password'));
 	}
 ));
 
 Route::post('/taskboard', function(){
-	$credentials = Input::only('email', 'password');
-	$remember = Input::has('remember');
-	if (Auth::attempt($credentials)) {
-	return Redirect::intended('taskboard');
-	}
-	return Redirect::to('/');
+	$login = new LoginController;
+	return $login->index();
 });
 
 Route::get('/logout', function()
 {
-Auth::logout();
-return Response::make('You are now logged out. :(');
+	Auth::logout();
+	return Redirect::to('/');
+	//return Response::make('You are now logged out. :(');
 });
 /*
 Route::post('/login', function()

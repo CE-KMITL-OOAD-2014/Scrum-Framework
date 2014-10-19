@@ -47,7 +47,7 @@
 				        	</ul>
 				        	<!--<li><a>Username</a></li>-->
 				        </li>
-				        <li><a href="#">Username</a></li>
+				        <li><a href="#">{{Input::get('email')}} {{ Session::get('email')}}</a></li>
 				        <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"> Sign out</i></a></li>
 			    	</ul> 
 				</div><!-- /.navbar-collapse -->				

@@ -13,6 +13,13 @@ class FormController extends BaseController
         );
          $validator = Validator::make($data, $rules);
 
+/*
+        // create our user data for the authentication
+        $userdata = array(
+            'email'     => Input::get('email'),
+            'password'  => Input::get('password')
+        );
+*/
     if ($validator->fails()) {
 
         // get the error messages from the validator
