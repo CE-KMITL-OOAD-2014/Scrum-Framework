@@ -2,15 +2,16 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="media/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="media/font-awesome/css/font-awesome.min.css">
     <style>
 .pink{
     color: #fff;
     background-color:#F4726D;
 }
-        .pink:hover{
-            color: #fff;
-            background-color:#FA726D;
-        }
+            .pink:hover{
+                color: #fff;
+                background-color:#FA726D;
+            }
     </style>
 </head>
 <body>
@@ -44,37 +45,36 @@
                             <li class="divider"></li>
                             <center><button type="button" class="btn pink"  data-toggle="modal" data-target="#myModal">Add new board</button></center>
                         </ul>
-                        <li><a>Username</a></li>
+                        <!--<li><a>Username</a></li>-->
                     </li>
+                    <li><a href="#">{{ Session::get('email')}}</a></li>
+                    <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"> Sign out</i></a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
-
         </div><!-- /.container-fluid -->
     </nav>
-
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Create new board</h4>
-                </div>
-                <div class="modal-body">
-                    <form role="form">
+                <form role="form" method="post" action="{{'taskboard'}}">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Create new board</h4>
+                    </div>
+                    <div class="modal-body">
                         <div class="form-group">
                             <label for="BoardName">Board name</label>
-                            <input type="email" class="form-control" id="board_name" placeholder="Board name">
+                            <input type="text" class="form-control" id="board_name" placeholder="Board name" name="boardname">
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn pink">Create</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn" style="background-color:#f4726d; color:#fff;" value="Submit">Create</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
     @yield('slidebar')
 
     @yield('body')

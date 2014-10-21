@@ -11,15 +11,25 @@
 |
 */
 
-/*
-Route::get('/', function()
-{
-	return View::make('home');
-});
-*/
-
 //Blade::setContentTags('<%', '%>');				// for variables and all things Blade
 //Blade::setEscapedContentTags('<%%', '%%>'); 	// for escaped data
+
+Route::post('/taskboard', array(
+	'before' => 'auth',
+	function()
+	{
+		$boardname = Input::get('boardname');
+        $taskboardController = new TaskboardController;
+		//show email @ navbar 
+		// $email = Auth::user()->email; 
+		// Session::flash('email',$email);
+		// Session::flash('boardname',$boardname);
+		// return View::make('login')->withInput(Input::except('password'));
+        return $taskboardController->index();
+	}
+));
+
+Route::get('/gettesttaskboard', 'TaskboardController@getTaskboard');
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showHome'));
 
