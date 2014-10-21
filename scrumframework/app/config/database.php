@@ -51,8 +51,8 @@ return array(
 	    'driver'   => 'mongodb',
 	    'host'     => 'localhost',
 	    'port'     => 27017,
-	    'username' => 'root',
-	    'password' => 'ceddd',
+	    'username' => 'scrumdbuser',
+	    'password' => 'SuchPasswordMuchWow',
 	    'database' => 'scrumdb'
 		),
 
