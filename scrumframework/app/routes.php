@@ -37,14 +37,17 @@ Route::post('/taskboard', array(
 	function()
 	{
 		$boardname = Input::get('boardname');
+        $taskboardController = new TaskboardController;
 		//show email @ navbar 
-		$email = Auth::user()->email; 
-		Session::flash('email',$email);
-		Session::flash('boardname',$boardname);
-		return View::make('login')->withInput(Input::except('password'));
+		// $email = Auth::user()->email; 
+		// Session::flash('email',$email);
+		// Session::flash('boardname',$boardname);
+		// return View::make('login')->withInput(Input::except('password'));
+        return $taskboardController->index();
 	}
 ));
 
+Route::get('/gettesttaskboard', 'TaskboardController@getTaskboard');
 
 Route::get('/logout', function()
 {

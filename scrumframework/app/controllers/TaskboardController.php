@@ -10,28 +10,42 @@ class TaskboardController extends \BaseController {
     public function index()
     {
         $data = Input::all();
+        $boardname = Input::get('boardname');
         $rules = array(
-            'name' => 'required|min:1|max:64';
+            'boardname' => 'required|min:1|max:64'
         );
 
         $validator = Validator::make($data, $rules);
 
         if($validator->fails()) {
             $messages = $validator->messages();
-            return Redirect::to('/taskboard')->withErrors($validator);
+            return Redirect::to('/')->withErrors($validator);
         }
 
         else {
             $taskboard = new Taskboard;
-
-            $taskboard->name = Input::get('name');
-
+            $taskboard->name = Input::get('boardname');
             $taskboard->save();
 
-            return 'Taskboard was saved';
+            $email = Auth::user()->email;
+            Session::flash('email',$email);
+            Session::flash('boardname',$boardname);
+            return View::make('login')->withInput(Input::except('password'));
         }
     }
 
+    public function getTaskboard()
+    {
+        $taskboard = DB::collection('taskboards')->first();
+        if( 0 && !$taskboard->isEmpty())
+        {
+            return Response::json($taskboard->toArray());
+        }
+        else
+        {
+            return var_dump($taskboard);
+        }
+    }
 
     /**
      * Show the form for creating a new resource.
