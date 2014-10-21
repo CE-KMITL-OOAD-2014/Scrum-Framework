@@ -12,12 +12,13 @@ class CreateUserTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('users', function($table)
+		Schema::create('users', function($collection)
 		{
-			$table->increments('id');
-			$table->string('email', 320)->unique();
-			$table->string('password', 60);
-			$table->timestamps();
+			$collection->increments('id');
+			$collection->string('email', 320)->unique();
+			$collection->string('password', 60);
+			//$collection->string('boardname',array('productbacklog' => description,));
+			$collection->timestamps();
 		});
 	}
 

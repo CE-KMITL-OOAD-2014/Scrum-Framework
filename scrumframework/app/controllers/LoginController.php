@@ -9,7 +9,7 @@ class LoginController extends BaseController
         if (Auth::attempt($credentials)) {
             $email = Auth::user()->email;         
             Session::flash('email',$email);
-        return Redirect::intended('taskboard')->withInput(Input::except('password'));
+        return Redirect::intended('main')->withInput(Input::except('password'));
         }
       //  $email = Input::flashExcept('password');
        return Redirect::to('/');

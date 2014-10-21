@@ -11,6 +11,7 @@
         <li><a href="#">Sprint4</a></li>
       </ul>
     </div>
+    <h2>{{ Session::get('boardname')}}</h2>
     <blockquote style="display:inline;">
       <p style="display:inline;">User login</p>
     </blockquote>

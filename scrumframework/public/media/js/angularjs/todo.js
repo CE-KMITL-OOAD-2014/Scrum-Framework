@@ -1,7 +1,7 @@
 angular.module('todoApp',  ['ngDragDrop'])
     .controller('TodoController', ['$scope', function($scope) {
         $scope.list0 = [
-            { 'description': 'aaaaa', 'drag': true },
+            { 'description': 'test', 'drag': true },
              { 'title': null, 'drag': true }];
      
         $scope.addProductbacklog = function() {
@@ -42,14 +42,9 @@ angular.module('todoApp',  ['ngDragDrop'])
 
     $scope.list1 = [];
     $scope.list2 = [
-    { 'title': 'Item 112333', 'drag': true },
+    { 'title': 'Item 1', 'drag': true },
     { 'title': 'Item 2', 'drag': true },
-    { 'title': 'Item 3', 'drag': true },
-    { 'title': 'Item 4', 'drag': true },
-    { 'title': 'Item 5', 'drag': true },
-    { 'title': 'Item 6', 'drag': true },
-    { 'title': 'Item 7', 'drag': true },
-    { 'title': 'Item 8', 'drag': true }
+    { 'title': 'Item 3', 'drag': true }
   ]; 
     $scope.list3 = [];
     }]);
