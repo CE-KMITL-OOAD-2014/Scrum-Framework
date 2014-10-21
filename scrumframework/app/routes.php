@@ -25,20 +25,34 @@ Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showhome'));
 
 //Route::get('/taskboard', array('as' => 'logedin', 'uses' => 'HomeController@showLogin'));
 
-Route::get('/taskboard', array(
+Route::get('/main', array(
 	'before' => 'auth',
 	function()
 	{
 		$email = Auth::user()->email; 
 		Session::flash('email',$email);
+		return View::make('main')->withInput(Input::except('password'));
+	}
+));
+
+Route::post('/main', function(){
+	$login = new LoginController;
+	return $login->index();
+});
+
+Route::post('/taskboard', array(
+	'before' => 'auth',
+	function()
+	{
+		$boardname = Input::get('boardname');
+		//show email @ navbar 
+		$email = Auth::user()->email; 
+		Session::flash('email',$email);
+		Session::flash('boardname',$boardname);
 		return View::make('login')->withInput(Input::except('password'));
 	}
 ));
 
-Route::post('/taskboard', function(){
-	$login = new LoginController;
-	return $login->index();
-});
 
 Route::get('/logout', function()
 {
