@@ -36,15 +36,8 @@ class TaskboardController extends \BaseController {
 
     public function getTaskboard()
     {
-        $taskboard = Taskboard::first();
-        if( 1 && 1 )
-        {
-            return Response::json($taskboard->toArray());
-        }
-        else
-        {
-            return var_dump($taskboard);
-        }
+        $taskboards = Taskboard::all();
+        return Response::json($taskboards->toArray());
     }
 
     /**
