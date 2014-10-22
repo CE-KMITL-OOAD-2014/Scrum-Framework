@@ -4,10 +4,10 @@
     <link rel="stylesheet" type="text/css" href="media/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="media/font-awesome/css/font-awesome.min.css">
     <style>
-.pink{
-    color: #fff;
-    background-color:#F4726D;
-}
+            .pink{
+                color: #fff;
+                background-color:#F4726D;
+            }
             .pink:hover{
                 color: #fff;
                 background-color:#FA726D;
