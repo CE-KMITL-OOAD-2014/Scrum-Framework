@@ -31,7 +31,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="{{ url('/main') }}">Home</a></li>
                     <li><a href="#">What's Scrum Framework</a></li>						
                     <li><a href="#">About</a></li>
                 </ul>

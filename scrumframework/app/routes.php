@@ -32,6 +32,11 @@ Route::post('/main', function(){
 	return $login->index();
 });
 
+Route::get('/gettaskboard', function(){
+	$board = new TaskboardController;
+	return $board->getTaskboard();
+});
+
 Route::post('/taskboard', array(
 	'before' => 'auth',
 	function()

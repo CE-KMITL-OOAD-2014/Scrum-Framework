@@ -1,6 +1,7 @@
 @extends('layouts.loginlayout')
 @section('slidebar')
   <div class="col-md-offset-4 col-md-8" style="margin-top:2%; margin-bottom:2%;">
+    <h3 style="display:inline;">Boardname : {{ Session::get('boardname')}} </h3>
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
         Sprint 1 <span class="caret"></span>
@@ -11,7 +12,6 @@
         <li><a href="#">Sprint4</a></li>
       </ul>
     </div>
-    <h2>{{ Session::get('boardname')}}</h2>
     <blockquote style="display:inline;">
       <p style="display:inline;">User login</p>
     </blockquote>
