@@ -36,8 +36,8 @@ class TaskboardController extends \BaseController {
 
     public function getTaskboard()
     {
-        $taskboard = DB::collection('taskboards')->first();
-        if( 0 && !$taskboard->isEmpty())
+        $taskboard = Taskboard::first();
+        if( 1 && 1 )
         {
             return Response::json($taskboard->toArray());
         }
