@@ -19,7 +19,7 @@ class TaskboardController extends \BaseController {
 
         if($validator->fails()) {
             $messages = $validator->messages();
-            return Redirect::to('/main')->withErrors($validator);
+            return Redirect::to('/')->withErrors($validator);
         }
 
         else {
@@ -37,7 +37,7 @@ class TaskboardController extends \BaseController {
     public function getTaskboard()
     {
         $taskboard = DB::collection('taskboards')->first();
-        if(1&&1)
+        if( 0 && !$taskboard->isEmpty())
         {
             return Response::json($taskboard->toArray());
         }
