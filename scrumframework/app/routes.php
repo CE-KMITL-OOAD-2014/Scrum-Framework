@@ -46,7 +46,6 @@ Route::get('taskboard/{id?}', array(
     return $taskboardController->getTaskboard($id);
 }));
 
-
 //CREATE BOARD
 Route::post('/taskboard', array(
 	'before' => 'auth',
