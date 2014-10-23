@@ -52,6 +52,14 @@ Route::post('/taskboard', array(
 	}
 ));
 
+
+Route::get('taskboard/{id}', array(
+	'before' => 'auth', function($id)
+{
+    return 'boardid='.$id;
+}));
+
+
 Route::get('/gettesttaskboard', 'TaskboardController@getTaskboard');
 
 Route::get('/logout', function()

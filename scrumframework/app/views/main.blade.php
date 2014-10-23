@@ -7,10 +7,8 @@
 	</ul>
 <h1>show boards</h1>
 <div ng-controller="TodoController">	
-	<p>@{{alert('555')}}</p>
-	<p>@{{data[2].name}}</p>
-	<div class="btn pink btn-draggable" ng-repeat="bname in boardname" ng-show="bname.name" ng-model="boardname" >@{{bname.name}}
-        <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
-      </div>
+	<a  href="/taskboard/@{{bname._id}}"  style="color:#fff; text-decoration:none;">
+		<div class="btn pink" ng-repeat="bname in boardname" ng-show="bname.name" ng-model="boardname">@{{bname.name}}</a>
+						</div>
 </div>
 @stop

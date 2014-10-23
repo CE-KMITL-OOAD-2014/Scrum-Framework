@@ -34,7 +34,7 @@ class TaskboardController extends \BaseController {
         }
     }
 
-    public function getTaskboard()
+    public function getTaskboard($id)
     {
         $taskboards = Taskboard::all();
         return Response::json($taskboards->toArray());
