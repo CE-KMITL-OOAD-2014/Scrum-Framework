@@ -32,11 +32,22 @@ Route::post('/main', function(){
 	return $login->index();
 });
 
+// SHOW ALL TASK BOARD IN JSON FORMAT
 Route::get('/gettaskboard', function(){
 	$board = new TaskboardController;
 	return $board->getTaskboard();
 });
 
+
+Route::get('taskboard/{id?}', array(
+	'before' => 'auth', function($id=null)
+{
+	$taskboardController = new TaskboardController;
+    return $taskboardController->getTaskboard($id);
+}));
+
+
+//CREATE BOARD
 Route::post('/taskboard', array(
 	'before' => 'auth',
 	function()
@@ -51,13 +62,6 @@ Route::post('/taskboard', array(
         return $taskboardController->index();
 	}
 ));
-
-
-Route::get('taskboard/{id}', array(
-	'before' => 'auth', function($id)
-{
-    return 'boardid='.$id;
-}));
 
 
 Route::get('/gettesttaskboard', 'TaskboardController@getTaskboard');

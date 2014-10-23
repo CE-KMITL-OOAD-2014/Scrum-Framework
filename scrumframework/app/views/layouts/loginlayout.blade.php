@@ -1,8 +1,8 @@
 <html ng-app="{{ 1==2 ? 'aaa' : 'todoApp'}}">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="media/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="media/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{url('media/css/bootstrap.min.css');}}">
+    <link rel="stylesheet" type="text/css" href="{{url('media/font-awesome/css/font-awesome.min.css');}}">
     <style>
             .pink{
                 color: #fff;
@@ -79,11 +79,11 @@
 
     @yield('body')
 
-    <script src="media/js/jquery-1.11.1.min.js"></script>
-    <script src="media/js/jquery-ui.min.js"></script>		
-    <script src="media/js/bootstrap.min.js"></script>
-    <script src="media/js/angularjs/angular.min.js"></script>
-    <script src="media/js/angularjs/angular-dragdrop.min.js"></script>
-    <script src="media/js/angularjs/todo.js"></script>
+    <script src="{{url('media/js/jquery-1.11.1.min.js');}}"></script>
+    <script src="{{url('media/js/jquery-ui.min.js');}}"></script>		
+    <script src="{{url('media/js/bootstrap.min.js');}}"></script>
+    <script src="{{url('media/js/angularjs/angular.min.js');}}"></script>
+    <script src="{{url('media/js/angularjs/angular-dragdrop.min.js');}}"></script>
+    <script src="{{url('media/js/angularjs/todo.js');}}"></script>
 </body>
 </html>

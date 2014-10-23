@@ -34,10 +34,21 @@ class TaskboardController extends \BaseController {
         }
     }
 
-    public function getTaskboard()
+    public function getTaskboard($id=null)
     {
-        $taskboards = Taskboard::all();
-        return Response::json($taskboards->toArray());
+        if($id==null)
+        {
+            $taskboards = Taskboard::all();
+            return Response::json($taskboards->toArray());            
+        }
+        else
+        {
+            $taskboards = Taskboard::find($id);
+            $boardname = $taskboards->name;
+            return View::make('login', array('boardname'=> $boardname));
+            //return 'boardname='.$boardname;
+            //return Response::json($taskboards->toArray()); 
+        }
     }
 
     /**
