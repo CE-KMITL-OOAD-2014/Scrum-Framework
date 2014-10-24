@@ -55,8 +55,8 @@ Route::post('/taskboard', array(
 	{
 		$boardname = Input::get('boardname');
         $taskboardController = new TaskboardController;
-		//show email @ navbar 
-		// $email = Auth::user()->email; 
+		//show email @ navbar
+		// $email = Auth::user()->email;
 		// Session::flash('email',$email);
 		// Session::flash('boardname',$boardname);
 		// return View::make('login')->withInput(Input::except('password'));

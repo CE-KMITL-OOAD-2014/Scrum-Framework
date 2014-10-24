@@ -8,38 +8,42 @@ use Jenssegers\Mongodb\Model as Eloquent;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait;
+    use UserTrait, RemindableTrait;
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-//	protected $table = 'users';
-	protected $collection = 'users';
-	protected $connection = 'mongodb';
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    //	protected $table = 'users';
+    protected $collection = 'users';
+    protected $connection = 'mongodb';
 
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password', 'remember_token');
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = array('password', 'remember_token');
 
-	public function getAuthIdentifier()
-	{
-		return $this->getKey();
-	}
+    public function getAuthIdentifier()
+    {
+        return $this->getKey();
+    }
 
-	public function getAuthPassword()
-	{
-		return $this->password;
-	}
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
 
-	public function getReminderEmail()
-	{
-		return $this->email;
-	}
+    public function getReminderEmail()
+    {
+        return $this->email;
+    }
+    public function taskboards()
+    {
+        return $this->belongsToMany('Taskboard', null, 'users', 'taskboards');
+    }
 
 }

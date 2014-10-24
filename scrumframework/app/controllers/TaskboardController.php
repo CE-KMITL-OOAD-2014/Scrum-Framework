@@ -25,6 +25,8 @@ class TaskboardController extends \BaseController {
         else {
             $taskboard = new Taskboard;
             $taskboard->name = Input::get('boardname');
+            $currentUser = Auth::user();
+            $taskboard = $currentUser->taskboards()->save($taskboard);
             $taskboard->save();
 
             $email = Auth::user()->email;
@@ -49,6 +51,13 @@ class TaskboardController extends \BaseController {
             //return 'boardname='.$boardname;
             //return Response::json($taskboards->toArray());
         }
+    }
+
+    public function getAuthorizedUser()
+    {
+        $authedUsers =  Taskboard::first()->authorizedUsers;
+        return Response::json($authedUsers);
+        //return var_dump($authedUsers);
     }
 
     /**
