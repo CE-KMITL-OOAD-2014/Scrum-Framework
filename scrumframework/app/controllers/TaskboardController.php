@@ -39,7 +39,7 @@ class TaskboardController extends \BaseController {
         if($id==null)
         {
             $taskboards = Taskboard::all();
-            return Response::json($taskboards->toArray());            
+            return Response::json($taskboards->toArray());
         }
         else
         {
@@ -47,7 +47,7 @@ class TaskboardController extends \BaseController {
             $boardname = $taskboards->name;
             return View::make('login', array('boardname'=> $boardname));
             //return 'boardname='.$boardname;
-            //return Response::json($taskboards->toArray()); 
+            //return Response::json($taskboards->toArray());
         }
     }
 
