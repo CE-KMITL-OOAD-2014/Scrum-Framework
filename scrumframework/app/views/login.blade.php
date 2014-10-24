@@ -2,6 +2,12 @@
 @section('slidebar')
   <div class="col-md-offset-4 col-md-8" style="margin-top:2%; margin-bottom:2%;">
     <h3 style="display:inline;">Boardname :  {{{ $boardname or Session::get('boardname') }}} </h3>
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello @{{yourName}}!</h1>
+    </div>
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
         Sprint 1 <span class="caret"></span>
