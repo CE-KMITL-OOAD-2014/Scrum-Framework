@@ -64,7 +64,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="BoardName">Board name</label>
-                            <input type="text" class="form-control" id="board_name" placeholder="Board name" name="boardname">
+                            <input type="text" class="form-control" id="board_name" placeholder="Board name" name="boardname" required>
                         </div>
                     </div>
                     <div class="modal-footer">

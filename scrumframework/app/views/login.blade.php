@@ -1,27 +1,41 @@
 @extends('layouts.loginlayout')
 @section('slidebar')
-  <div class="col-md-offset-4 col-md-8" style="margin-top:2%; margin-bottom:2%;">
+<div class="col-md-12">
+  <div class="col-md-offset-4 col-md-4" style="margin-top:2%; margin-bottom:2%;">
     <h3 style="display:inline;">Boardname :  {{{ $boardname or Session::get('boardname') }}} </h3>
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello @{{yourName}}!</h1>
-    </div>
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        Sprint 1 <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#">Sprint2</a></li>
-        <li><a href="#">Sprint3</a></li>
-        <li><a href="#">Sprint4</a></li>
-      </ul>
-    </div>
-    <blockquote style="display:inline;">
-      <p style="display:inline;">User login</p>
-    </blockquote>
+      <form role="form" method="post" action="{{url('/inputsprintname')}}"> 
+        <div class="input-group">
+          <div class="input-group-btn">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Sprint 1 <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Sprint2</a></li>
+                <li><a href="#">Sprint3</a></li>
+                <li><a href="#">Sprint4</a></li>
+              </ul>
+            </div>
+          </div>
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Default Sprint" name="sprintname" style="display:inline; width:50%;"required> 
+          <button type="submit" class="btn btn-success" ng-click="HomeController@showhome">Save !</button>
+        </div>
+      </form>
   </div>
+
+  <div class="col-md-4" style="margin-top:2%; margin-bottom:2%;">
+    <ul>
+      <li>abccd@hotmail.com</li>
+      <li>abccd@hotmail.com</li>
+      <li>abccd@hotmail.com</li>
+    </ul>
+      <form role="form" method="post" action="{{url('/inputemail')}}"> <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="emailmember" style="display:inline; width:50%;" required> 
+     <button type="submit" class="btn btn-danger">Add User</button>
+     </form>
+  </div>
+</div>
+
+
 	<div ng-controller="TodoController">			
 		<div class="col-md-3 thumbnail" style="background-color:#ecf0f1; margin-left:1%;">
       <h2>Product Backlog</h2>
@@ -51,7 +65,7 @@
               </div>
               <form ng-submit="addTodo()">
                 <input type="text" class="form-control"  ng-model="addSprint1" size="30"
-                placeholder="Add Sprint" style="width:80%; display:inline;">
+                placeholder="Add SprintBacklog" style="width:80%; display:inline;">
                 <!--<input class="btn-primary" type="submit" value="add">-->
                 <button class="btn btn-info" type="submit" value="add">Add</button>
               </form>
