@@ -46,9 +46,10 @@ class TaskboardController extends \BaseController {
         else
         {
             $taskboards = Taskboard::find($id);
+            if($taskboards==null){return Redirect::route('404');}
             $boardname = $taskboards->name;
-            $boardid = $taskboards->_id;
-            return View::make('login', array('boardname'=> $boardname,'boardid' => $boardid));
+            //return View::make('login', array('boardname'=> $boardname));
+            return View::make('login', array('boardname'=> $boardname,'boardid' => $id));
             //return 'boardname='.$boardname;
             //return Response::json($taskboards->toArray());
         }

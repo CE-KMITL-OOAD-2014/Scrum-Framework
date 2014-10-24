@@ -102,8 +102,8 @@ Route::get('/inside', function()
 {
 	return "Hello inside";
 });
-Route::get('/404', function()
+Route::get('/404', array('as' => '404', function()
 {
 	return App::abort(404);
-});
+}));
 
