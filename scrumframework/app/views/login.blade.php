@@ -1,7 +1,7 @@
 @extends('layouts.loginlayout')
 @section('slidebar')
   <div class="col-md-offset-4 col-md-8" style="margin-top:2%; margin-bottom:2%;">
-    <h3 style="display:inline;">Boardname : <?php if(isset($boardname)){echo $boardname;} ?>{{ Session::get('boardname')}} </h3>
+    <h3 style="display:inline;">Boardname :  {{{ $boardname or Session::get('boardname') }}} </h3>
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
         Sprint 1 <span class="caret"></span>

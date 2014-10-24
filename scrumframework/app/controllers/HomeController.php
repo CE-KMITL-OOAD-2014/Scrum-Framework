@@ -16,6 +16,17 @@ class HomeController extends BaseController {
 	*/
 	public function showHome()
 	{
-		return View::make('home');
-	}	
+		$uri = Request::path();
+		return View::make('home', array('uri' => $uri));
+	}
+	public function showMean()
+	{
+		$uri = Request::path();
+		return View::make('mean', array('uri' => $uri));
+	}
+		public function showAbout()
+	{
+		$uri = Request::path();
+		return View::make('about', array('uri' => $uri));
+	}			
 }

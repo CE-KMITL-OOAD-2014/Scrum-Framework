@@ -1,7 +1,7 @@
 <html>
 	<head>
-	<link rel="stylesheet" type="text/css" href="media/css/bootstrap.min.css">	
-	<head>
+	<link rel="stylesheet" type="text/css" href="{{url('media/css/bootstrap.min.css');}}">
+    <link rel="stylesheet" type="text/css" href="{{url('media/font-awesome/css/font-awesome.min.css');}}">
 	<body>
 			<nav class="navbar navbar-default" role="navigation" style="margin-bottom:0px;">
 				<div class="container-fluid">
@@ -19,9 +19,9 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					  <ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">What's Scrum Framework</a></li>						
-						<li><a href="#">About</a></li>
+						<li class="@if ($uri=='/') active @endif"><a href="{{url('/')}}">Home</a></li>
+						<li class="@if ($uri=='meaning') active @endif"><a href="{{url('/meaning')}}">What's Scrum Framework</a></li>						
+						<li class="@if ($uri=='about') active @endif"><a href="{{url('/about')}}">About</a></li>
 					  </ul>
 					</div><!-- /.navbar-collapse -->
 					
@@ -32,9 +32,9 @@
 			
 			@yield('login')
 			
-		<script src="media/js/jquery-1.11.1.min.js"></script>
-		<script src="media/js/jquery-1.11.1.min.map"></script>		
-		<script src="media/js/bootstrap.min.js"></script>
-		<script src="media/js/angularjs/angular.min.js"></script>				
+	<script src="{{url('media/js/jquery-1.11.1.min.js');}}"></script>
+    <script src="{{url('media/js/jquery-ui.min.js');}}"></script>		
+    <script src="{{url('media/js/bootstrap.min.js');}}"></script>
+    <script src="{{url('media/js/angularjs/angular.min.js');}}"></script>			
 	</body>
 </html>
