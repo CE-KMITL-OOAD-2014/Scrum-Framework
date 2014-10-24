@@ -40,7 +40,7 @@ class TaskboardController extends \BaseController {
     {
         if($id==null)
         {
-            $taskboards = Taskboard::all();
+            $taskboards = Auth::user()->taskboards()->get();
             return Response::json($taskboards->toArray());
         }
         else
@@ -56,9 +56,18 @@ class TaskboardController extends \BaseController {
 
     public function getAuthorizedUser()
     {
+        // TODO : [In Progress] query list of Taskboard Administrators
         $authedUsers =  Taskboard::first()->authorizedUsers;
         return Response::json($authedUsers);
-        //return var_dump($authedUsers);
+    }
+
+    public function deleteTaskboard()
+    {
+        // if($taskboard = null)
+        //     $taskboard = Auth::user()->taskboards()->first()
+
+
+        // return "TODO : delete taskboard, detach from user";
     }
 
     /**
