@@ -76,11 +76,10 @@ Route::post('/taskboard/{id}/inputsprintname', array(
 
 // WHEN EDIT SPRINT NAME
 Route::post('taskboard/{id}/inputemail', array(
-	'before' => 'auth',
-	function()
+	'before' => 'auth', function($id=null)
 	{
 		$emailmember = new EmailmemberController;
-		return $emailmember->index();
+		return $emailmember->index($id);
 	}
 ));
 
@@ -106,4 +105,5 @@ Route::get('/404', array('as' => '404', function()
 {
 	return App::abort(404);
 }));
+
 
