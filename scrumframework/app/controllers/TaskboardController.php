@@ -47,7 +47,8 @@ class TaskboardController extends \BaseController {
         {
             $taskboards = Taskboard::find($id);
             $boardname = $taskboards->name;
-            return View::make('login', array('boardname'=> $boardname));
+            $boardid = $taskboards->_id;
+            return View::make('login', array('boardname'=> $boardname,'boardid' => $boardid));
             //return 'boardname='.$boardname;
             //return Response::json($taskboards->toArray());
         }

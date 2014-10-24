@@ -53,7 +53,7 @@ Route::post('/taskboard', array(
 	'before' => 'auth',
 	function()
 	{
-		$boardname = Input::get('boardname');
+		//$boardname = Input::get('boardname');
         $taskboardController = new TaskboardController;
 		//show email @ navbar 
 		// $email = Auth::user()->email; 
@@ -64,21 +64,23 @@ Route::post('/taskboard', array(
 	}
 ));
 
-Route::post('/inputsprintname', array(
-	'before' => 'auth',
-	function()
+Route::post('/taskboard/{id}/inputsprintname', array(
+	'before' => 'auth', function($id=null)
 	{
-		$sprintname = Input::get('sprintname');
-		return 'sprintname = '.$sprintname;
+		$sprintnameController = new SprintnameController;
+		return $sprintnameController->index();
+		//$sprintname = Input::get('sprintname');
+		//return 'sprintname = '.$sprintname;
 	}
 ));
 
-Route::post('/inputemail', array(
+// WHEN EDIT SPRINT NAME
+Route::post('taskboard/{id}/inputemail', array(
 	'before' => 'auth',
 	function()
 	{
-		$emailmember = Input::get('emailmember');
-		return 'emailmember = '.$emailmember;
+		$emailmember = new EmailmemberController;
+		return $emailmember->index();
 	}
 ));
 

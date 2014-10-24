@@ -3,7 +3,7 @@
 <div class="col-md-12">
   <div class="col-md-offset-4 col-md-4" style="margin-top:2%; margin-bottom:2%;">
     <h3 style="display:inline;">Boardname :  {{{ $boardname or Session::get('boardname') }}} </h3>
-      <form role="form" method="post" action="{{url('/inputsprintname')}}"> 
+      <form role="form" method="post" action="{{url('/taskboard/'.$boardid.'/inputsprintname')}}"> 
         <div class="input-group">
           <div class="input-group-btn">
             <div class="btn-group">
@@ -29,7 +29,7 @@
       <li>abccd@hotmail.com</li>
       <li>abccd@hotmail.com</li>
     </ul>
-      <form role="form" method="post" action="{{url('/inputemail')}}"> <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="emailmember" style="display:inline; width:50%;" required> 
+      <form role="form" method="post" action="{{url('/taskboard/'.$boardid.'/inputemail')}}"> <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="emailmember" style="display:inline; width:50%;" required> 
      <button type="submit" class="btn btn-danger">Add User</button>
      </form>
   </div>
