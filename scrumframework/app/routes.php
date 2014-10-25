@@ -13,11 +13,22 @@
 //Blade::setContentTags('<%', '%>');			// for variables and all things Blade
 //Blade::setEscapedContentTags('<%%', '%%>'); 	// for escaped data
 
+//HOME PAGE.
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showhome'));
 
+//MEANING PAGE.
 Route::get('/meaning', array('as' => 'mean', 'uses' => 'HomeController@showMean'));
+
+//ABOUT PAGE.
 Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
 
+//[POST]MAIN PAGE WHEN LOGEDIN.
+Route::post('/main', function(){
+	$login = new LoginController;
+	return $login->index();
+});
+
+//[GET]MAIN PAGE WHEN LOGEDIN.
 Route::get('/main', array('as' => 'main',
 	'before' => 'auth',
 	function()
@@ -28,26 +39,13 @@ Route::get('/main', array('as' => 'main',
 	}
 ));
 
-Route::post('/main', function(){
-	$login = new LoginController;
-	return $login->index();
-});
-
-// SHOW ALL TASK BOARD IN JSON FORMAT
+// SHOW ALL TASK BOARD IN JSON FORMAT.
 Route::get('/gettaskboard', function(){
 	$board = new TaskboardController;
 	return $board->getTaskboard();
 });
 
-
-Route::get('taskboard/{id?}', array(
-	'before' => 'auth', function($id=null)
-{
-	$taskboardController = new TaskboardController;
-    return $taskboardController->getTaskboard($id);
-}));
-
-//CREATE BOARD
+//CREATE BOARD.
 Route::post('/taskboard', array(
 	'before' => 'auth',
 	function()
@@ -63,6 +61,23 @@ Route::post('/taskboard', array(
 	}
 ));
 
+// ACCESS BOARD.
+Route::get('taskboard/{id?}', array(
+	'before' => 'auth', function($id=null)
+{
+	$taskboardController = new TaskboardController;
+    return $taskboardController->getTaskboard($id);
+}));
+
+//DELETE BOARD.
+Route::get('taskboard/{id}/delete', array(
+	'before' => 'auth', function($id=null)
+{
+	$taskboardController = new TaskboardController;
+    return $taskboardController->deleteTaskboard($id);
+}));
+
+//INPUT SPRINT NAME.
 Route::post('/taskboard/{id}/inputsprintname', array(
 	'before' => 'auth', function($id=null)
 	{
@@ -73,7 +88,7 @@ Route::post('/taskboard/{id}/inputsprintname', array(
 	}
 ));
 
-// WHEN EDIT SPRINT NAME
+// WHEN EDIT SPRINT NAME.
 Route::post('taskboard/{id}/inputemail', array(
 	'before' => 'auth', function($id=null)
 	{
@@ -82,7 +97,13 @@ Route::post('taskboard/{id}/inputemail', array(
 	}
 ));
 
+//GET BOARD IN JSON FORMAT
 Route::get('/gettesttaskboard', 'TaskboardController@getTaskboard');
+
+//GET BOARD IN JSON FORMAT
+Route::get('/gettestuser', 'LoginController@userToJSON');
+
+
 Route::get('/testq', 'TaskboardController@getAuthorizedUser');
 
 Route::get('/logout', function()

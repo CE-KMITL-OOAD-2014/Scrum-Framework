@@ -14,4 +14,11 @@ class LoginController extends BaseController
       //  $email = Input::flashExcept('password');
        return Redirect::to('/');
     }
+    
+
+    public function userToJSON()
+    {
+             $user = User::first()->get();
+            return Response::json($user->toArray());
+    }
 }

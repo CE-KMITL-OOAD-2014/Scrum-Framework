@@ -15,6 +15,7 @@
             .word{
                 word-wrap: break-word;
             }
+            .btn{border-radius:0px;}
     </style>
 </head>
 <body>

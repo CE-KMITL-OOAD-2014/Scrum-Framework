@@ -67,13 +67,16 @@ class TaskboardController extends \BaseController {
         // }
     }
 
-    public function deleteTaskboard()
+    public function deleteTaskboard($id=null)
     {
-        // if($taskboard = null)
-        //     $taskboard = Auth::user()->taskboards()->first()
+        $deletedtaskboard = Taskboard::find($id);
+        $deletedtaskboard->delete();
 
+        $user = Auth::user();      
+        $user->pull('taskboards',$id);
 
-        // return "TODO : delete taskboard, detach from user";
+        //$boardDeleted = $allBoardInUser->get;
+        return Redirect::route('main');
     }
 
     /**
