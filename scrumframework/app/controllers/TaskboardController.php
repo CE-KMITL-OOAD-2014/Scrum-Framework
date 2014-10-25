@@ -74,7 +74,7 @@ class TaskboardController extends \BaseController {
         $deletedtaskboard->delete();
 
         //DELETE TASKBOARDS FIELD FROM USER COLLECTIONS.
-        $user = Auth::user();      
+        $user = Auth::user();
         $user->pull('taskboards',$id);
 
         return Redirect::route('main');
