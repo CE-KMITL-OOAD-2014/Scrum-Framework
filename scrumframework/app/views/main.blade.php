@@ -15,7 +15,7 @@
 <div class="col-md-6 col-md-offset-6">
 	<form method="post" action="{{url('/addteam')}}">
 		<div class="col-xs-3">
-    		<input type="text" class="form-control" placeholder="Team name">
+    		<input type="text" class="form-control" placeholder="Team name" name="teanname">
   		</div>
 		<button type="submit" class="btn primary">Add Team</button>
 	</form>
