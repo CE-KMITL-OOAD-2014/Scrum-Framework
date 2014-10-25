@@ -12,4 +12,12 @@
 			<a href="/taskboard/@{{bname._id}}/delete"><button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button></a>
 		</div>
 </div>
+<div class="col-md-6 col-md-offset-6">
+	<form method="post" action="{{url('/addteam')}}">
+		<div class="col-xs-3">
+    		<input type="text" class="form-control" placeholder="Team name">
+  		</div>
+		<button type="submit" class="btn primary">Add Team</button>
+	</form>
+</div>
 @stop

@@ -47,8 +47,7 @@ Route::get('/gettaskboard', function(){
 
 //CREATE BOARD.
 Route::post('/taskboard', array(
-	'before' => 'auth',
-	function()
+	'before' => 'auth',function()
 	{
 		//$boardname = Input::get('boardname');
         $taskboardController = new TaskboardController;
@@ -76,6 +75,14 @@ Route::get('taskboard/{id}/delete', array(
 	$taskboardController = new TaskboardController;
     return $taskboardController->deleteTaskboard($id);
 }));
+
+Route::post('/addteam') , array(
+	'before' => 'auth',function()
+	{
+        $teamController = new TeamController;
+        return $teamController->store();
+	}
+));
 
 //INPUT SPRINT NAME.
 Route::post('/taskboard/{id}/inputsprintname', array(
