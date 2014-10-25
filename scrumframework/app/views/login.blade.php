@@ -3,7 +3,7 @@
 <div class="col-md-12">
   <div class="col-md-offset-4 col-md-4" style="margin-top:2%; margin-bottom:2%;">
     <h3 style="display:inline;">Boardname :  {{{ $boardname or Session::get('boardname') }}} </h3>
-      <form role="form" method="post" action="{{url('/taskboard/'.$boardid.'/inputsprintname')}}"> 
+      <form role="form" method="post" action="<?php if(isset($boardid)) {echo $boardid.'/inputsprintname';} ?>">
         <div class="input-group">
           <div class="input-group-btn">
             <div class="btn-group">
@@ -29,7 +29,8 @@
       <li>abccd@hotmail.com</li>
       <li>abccd@hotmail.com</li>
     </ul>
-      <form role="form" method="post" action="{{url('/taskboard/'.$boardid.'/inputemail')}}"> <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="emailmember" style="display:inline; width:50%;" required> 
+      <form role="form" method="post" action="<?php if(isset($boardid)) {echo $boardid.'/inputemail';} ?>"> <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="emailmember" style="display:inline; width:50%;" required>
+     <form> 
      <button type="submit" class="btn btn-danger">Add User</button>
      </form>
   </div>
@@ -39,8 +40,8 @@
 	<div ng-controller="TodoController">			
 		<div class="col-md-3 thumbnail" style="background-color:#ecf0f1; margin-left:1%;">
       <h2>Product Backlog</h2>
-      <div class="btn pink btn-draggable" ng-repeat="item in list0" ng-show="item.description" data-drag="@{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list0" jqyoui-draggable="{index: @{{$index}},animate:true}">@{{item.description}}
-        <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
+      <div class="btn pink btn-draggable word" ng-repeat="item in list0" ng-show="item.description" data-drag="@{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list0" jqyoui-draggable="{index: @{{$index}},animate:true}" >@{{item.description}}
+        <button type="button" class="close word"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
       </div>
       <form ng-submit="addProductbacklog()">
 				<input type="text" class="form-control"  ng-model="addTitle" size="30"

@@ -32,7 +32,8 @@ class TaskboardController extends \BaseController {
             $email = Auth::user()->email;
             Session::flash('email',$email);
             Session::flash('boardname',$boardname);
-            return View::make('login')->withInput(Input::except('password'));
+            //return View::make('login')->withInput(Input::except('password'));
+            return Redirect::route('main');
         }
     }
 

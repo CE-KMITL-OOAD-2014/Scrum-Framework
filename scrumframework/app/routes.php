@@ -16,9 +16,9 @@
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showhome'));
 
 Route::get('/meaning', array('as' => 'mean', 'uses' => 'HomeController@showMean'));
-Route::get('/about', array('as' => 'mean', 'uses' => 'HomeController@showAbout'));
+Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
 
-Route::get('/main', array(
+Route::get('/main', array('as' => 'main',
 	'before' => 'auth',
 	function()
 	{
