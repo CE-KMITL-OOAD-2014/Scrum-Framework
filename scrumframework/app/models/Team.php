@@ -4,7 +4,7 @@ use Jenssegers\Mongodb\Model as Eloquent;
 
 class Team extends Eloquent {
 
-    protected $collection = 'taskboards';
+    protected $collection = 'teams';
     protected $connection = 'mongodb';
 
     public function getTeam()
@@ -15,7 +15,6 @@ class Team extends Eloquent {
     public function teamMembers()
     {
         return $this->belongsToMany('User', null, 'teams', 'teamMembers');
-
     }
 
 }

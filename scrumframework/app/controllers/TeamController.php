@@ -48,9 +48,11 @@ class TeamController extends \BaseController {
             $team = new Team;
             $team->name = Input::get('teamname');
             $creator = Auth::user();
-            $team->memberRoles = array( $creator => "scrumMaster");
+            $team->master = $creator->_id;
             $team = $creator->teams()->save($team);
             $team->save();
+
+            return Redirect::route('main');
         }
     }
 

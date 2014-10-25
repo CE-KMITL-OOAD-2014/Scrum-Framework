@@ -4,7 +4,7 @@ use Jenssegers\Mongodb\Model as Eloquent;
 
 class Taskboard extends Eloquent {
 
-    protected $collection = 'taskboards';
+    protected $collection = 'teams';
     protected $connection = 'mongodb';
 
     public function authorizedUsers()
