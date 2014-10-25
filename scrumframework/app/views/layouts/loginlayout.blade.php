@@ -1,4 +1,4 @@
-<html ng-app="scrumFramework">
+<html ng-app="{{ 1==2 ? 'aaa' : 'todoApp'}}">
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{{url('media/css/bootstrap.min.css');}}">
@@ -67,16 +67,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <div ng-controller="SelectController">
-                                <div class="col-xs-3">
-                                    <label for="BoardName">Board name</label>
-                                </div>
-                                <div class="col-xs-6">
-                                    <input type="text" class="form-control" id="board_name" placeholder="Board name" name="boardname" required>
-                                </div>   
-                                <select class="btn btn-info" ng-model="myTeam" ng-options="team.name for team in teams"></select>
-                                <input type="hidden" name="team" value="@{{myTeam.name}}" >
-                            </div>
+                            <label for="BoardName">Board name</label>
+                            <input type="text" class="form-control" id="board_name" placeholder="Board name" name="boardname" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -96,7 +88,6 @@
     <script src="{{url('media/js/bootstrap.min.js');}}"></script>
     <script src="{{url('media/js/angularjs/angular.min.js');}}"></script>
     <script src="{{url('media/js/angularjs/angular-dragdrop.min.js');}}"></script>
-    <script src="{{url('media/js/angularjs/scrumframework.js');}}"></script>
-    <script src="{{url('media/js/angularjs/selectteam.js');}}"></script>
+    <script src="{{url('media/js/angularjs/todo.js');}}"></script>
 </body>
 </html>

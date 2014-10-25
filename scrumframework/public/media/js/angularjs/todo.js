@@ -1,4 +1,4 @@
-angular.module('scrumFramework',  ['ngDragDrop'])
+angular.module('todoApp',  ['ngDragDrop'])
     .controller('TodoController', ['$scope','$http', function($scope, $http) {
         $http.get('/gettaskboard').
          
@@ -56,9 +56,5 @@ angular.module('scrumFramework',  ['ngDragDrop'])
             error(function(data, status, headers, config) {
                 alert('error');
             });
-    }]);
+}]);
 
-
-angular.element(document).ready(function() {
-      angular.bootstrap(document, ['myApp']);
-    });

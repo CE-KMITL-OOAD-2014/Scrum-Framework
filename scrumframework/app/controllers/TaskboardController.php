@@ -11,9 +11,8 @@ class TaskboardController extends \BaseController {
     {
         $data = Input::all();
         $boardname = Input::get('boardname');
-        $team = Input::get('team');
         $rules = array(
-            'boardname' => 'required|min:1|max:32'
+            'boardname' => 'required|min:1|max:64'
         );
 
         $validator = Validator::make($data, $rules);
