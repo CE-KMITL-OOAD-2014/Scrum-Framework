@@ -7,9 +7,9 @@ class Taskboard extends Eloquent {
     protected $collection = 'taskboards';
     protected $connection = 'mongodb';
 
-    public function authorizedUsers()
+    public function teams()
     {
-        return $this->belongsToMany('User', null, 'taskboards', 'authedusers');
+        return $this->belongsToMany('Team', null, 'taskboards', 'teams');
     }
 
 }
