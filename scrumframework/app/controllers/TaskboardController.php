@@ -60,6 +60,10 @@ class TaskboardController extends \BaseController {
         // TODO : [In Progress] query list of Taskboard Administrators
         $authedUsers =  Taskboard::first()->authorizedUsers;
         return Response::json($authedUsers);
+        // foreach( $authedUsers as $user)
+        // {
+        //     return $user;
+        // }
     }
 
     public function deleteTaskboard()

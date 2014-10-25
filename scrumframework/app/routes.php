@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -84,6 +83,7 @@ Route::post('taskboard/{id}/inputemail', array(
 ));
 
 Route::get('/gettesttaskboard', 'TaskboardController@getTaskboard');
+Route::get('/testq', 'TaskboardController@getAuthorizedUser');
 
 Route::get('/logout', function()
 {
