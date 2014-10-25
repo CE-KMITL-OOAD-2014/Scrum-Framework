@@ -21,4 +21,6 @@
 		<a href="/taskboard/@{{bname._id}}/delete"><button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button></a>
 	</div>
 </div>
+
 @stop 
+

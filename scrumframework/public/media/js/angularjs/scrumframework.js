@@ -60,5 +60,5 @@ angular.module('scrumFramework',  ['ngDragDrop'])
 
 
 angular.element(document).ready(function() {
-      angular.bootstrap(document, ['myApp']);
+      angular.bootstrap(document, ['scrumFramework']);
     });
