@@ -43,7 +43,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     }
     public function taskboards()
     {
-        return $this->belongsToMany('Taskboard', null, 'users', 'taskboards');
+        return $this->belongsToMany('Taskboard', null, 'authedusers', 'taskboards');
+    }
+
+    public function teams()
+    {
+        return $this->belongsToMany('User' null, 'teamMembers', 'teams');
     }
 
 }

@@ -7,9 +7,15 @@ class Team extends Eloquent {
     protected $collection = 'taskboards';
     protected $connection = 'mongodb';
 
-    public function getT()
+    public function getTeam()
     {
         return $this;
+    }
+
+    public function teamMembers()
+    {
+        return $this->belongsToMany('User', null, 'teams', 'teamMembers');
+
     }
 
 }

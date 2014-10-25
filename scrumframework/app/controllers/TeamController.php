@@ -31,7 +31,27 @@ class TeamController extends \BaseController {
      */
     public function store()
     {
-        //
+        $data = Input::all();
+        $name = Input::get('teamname');
+        $rules = array(
+            'teamname' => 'required|min:3|max:64'
+        );
+        $validator = Validator::make($data, $rules);
+
+        if($validator->fails())
+        {
+            $messages = $validator->messages();
+            return Redirect::to('/')->withErrors($validator);
+        }
+        else
+        {
+            $team = new Team;
+            $team->name = Input::get('teamname');
+            $creator = Auth::user();
+            $team->memberRoles = array( $creator => "scrumMaster");
+            $team = $creator->teams()->save($team);
+            $team->save();
+        }
     }
 
 
