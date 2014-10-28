@@ -23,23 +23,24 @@ class TaskboardController extends \BaseController {
             return Redirect::to('/')->withErrors($validator);
         }
 
-        else {
+        else
+        {
             $taskboard = new Taskboard;
             $taskboard->name = Input::get('boardname');
+
             $taskboard->teams = Input::get('team');
             //Find teams that map team root.
             $team = Team::find($taskboard->teams);
             //Save taskboards into team.
             $taskboard = $team->taskboards()->save($taskboard);
           
-
             $taskboard->save();
 
             $email = Auth::user()->email;
             Session::flash('email',$email);
             Session::flash('boardname',$boardname);
             // return Redirect::route('main');
-            return Redirect::route('main');;
+            return Redirect::route('main');
         }
     }
 
@@ -48,27 +49,15 @@ class TaskboardController extends \BaseController {
         if($bid==null)
         {
             $taskboards = Auth::user()->teams()->get();
+
             return Response::json($taskboards->toArray());
         }
         else
         {
-         //   $taskboards = Auth::user()->teams()->where('taskboards', '_id',$bid)->get();
-    //           $taskboards = Auth::user()->teams()->taskboards();
-             $team = Team::find($tid);
-            $team = $team->taskboards()->find($bid); //work
-            $boardname = $team['name'];
-          //  echo url("/", $team , $secure = null);
-          //  $aaa=DB::collection('teams')->project(array('taskboards' =>array(array('_id' => array('$id' => $bid )) )))->get();
-        //            $taskboards = Taskboard::find($bid);
-//            if($taskboards==null){return Redirect::route('404');}
-//            $boardname = $taskboards->name;
-       //     $boardname = $team["name"];  work
-            //return View::make('login', array('boardname'=> $boardname));
+            $team = Team::find($tid);
+            $team = $team->taskboards()->find($bid); 
+            $boardname = $team['name']; 
             return View::make('login', array('boardname'=> $boardname,'boardid' => $bid));
-         //   return 'board'.$taskboards;
-      //     return Response::json($team->toArray());
-          //  var_dump($taskboards);
-            //return $team;
         }
     }
 
