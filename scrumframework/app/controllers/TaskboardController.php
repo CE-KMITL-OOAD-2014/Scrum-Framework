@@ -26,34 +26,49 @@ class TaskboardController extends \BaseController {
         else {
             $taskboard = new Taskboard;
             $taskboard->name = Input::get('boardname');
-            $currentUser = Auth::user();
-            $taskboard = $currentUser->taskboards()->save($taskboard);
+            $taskboard->teams = Input::get('team');
+            //Find teams that map team root.
+            $team = Team::find($taskboard->teams);
+            //Save taskboards into team.
+            $taskboard = $team->taskboards()->save($taskboard);
+          
+
             $taskboard->save();
 
             $email = Auth::user()->email;
             Session::flash('email',$email);
             Session::flash('boardname',$boardname);
-            //return View::make('login')->withInput(Input::except('password'));
-            return Redirect::route('main');
+            // return Redirect::route('main');
+            return Redirect::route('main');;
         }
     }
 
-    public function getTaskboard($id=null)
+    public function getTaskboard($tid=null, $bid=null)
     {
-        if($id==null)
+        if($bid==null)
         {
-            $taskboards = Auth::user()->taskboards()->get();
+            $taskboards = Auth::user()->teams()->get();
             return Response::json($taskboards->toArray());
         }
         else
         {
-            $taskboards = Taskboard::find($id);
-            if($taskboards==null){return Redirect::route('404');}
-            $boardname = $taskboards->name;
+         //   $taskboards = Auth::user()->teams()->where('taskboards', '_id',$bid)->get();
+    //           $taskboards = Auth::user()->teams()->taskboards();
+             $team = Team::find($tid);
+            $team = $team->taskboards()->find($bid); //work
+            $boardname = $team['name'];
+          //  echo url("/", $team , $secure = null);
+          //  $aaa=DB::collection('teams')->project(array('taskboards' =>array(array('_id' => array('$id' => $bid )) )))->get();
+        //            $taskboards = Taskboard::find($bid);
+//            if($taskboards==null){return Redirect::route('404');}
+//            $boardname = $taskboards->name;
+       //     $boardname = $team["name"];  work
             //return View::make('login', array('boardname'=> $boardname));
-            return View::make('login', array('boardname'=> $boardname,'boardid' => $id));
-            //return 'boardname='.$boardname;
-            //return Response::json($taskboards->toArray());
+            return View::make('login', array('boardname'=> $boardname,'boardid' => $bid));
+         //   return 'board'.$taskboards;
+      //     return Response::json($team->toArray());
+          //  var_dump($taskboards);
+            //return $team;
         }
     }
 
@@ -68,15 +83,16 @@ class TaskboardController extends \BaseController {
         // }
     }
 
-    public function deleteTaskboard($id=null)
+    public function deleteTaskboard($tid=null, $bid=null)
     {
         //DELETE FROM TASKBOARDS COLLECTIONS.
-        $deletedtaskboard = Taskboard::find($id);
+        $deletedtaskboard = Team::find($tid);
+        $deletedtaskboard = $deletedtaskboard->taskboards()->find($bid);
         $deletedtaskboard->delete();
 
         //DELETE TASKBOARDS FIELD FROM USER COLLECTIONS.
-        $user = Auth::user();
-        $user->pull('taskboards',$id);
+ //       $user = Auth::user();
+ //       $user->pull('taskboards',$id);
 
         return Redirect::route('main');
     }

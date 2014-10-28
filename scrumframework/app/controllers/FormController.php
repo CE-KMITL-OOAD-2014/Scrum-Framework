@@ -7,7 +7,7 @@ class FormController extends BaseController
     { 
         $data = Input::all();
         $rules = array(
-        'email' => 'required|email|min:5|max:32', //don't forget to add unique:users rule
+        'email' => 'required|email|min:5|max:32|unique:users', //don't forget to add unique:users rule
         'password' => 'required|min:6',
         'password_confirmation' => 'required|same:password' 
         );

@@ -61,19 +61,19 @@ Route::post('/taskboard', array(
 ));
 
 // ACCESS BOARD.
-Route::get('taskboard/{id?}', array(
-	'before' => 'auth', function($id=null)
+Route::get('taskboard/{id}/{bid}', array(
+	'before' => 'auth', function($id, $bid)
 {
 	$taskboardController = new TaskboardController;
-    return $taskboardController->getTaskboard($id);
+    return $taskboardController->getTaskboard($id, $bid);
 }));
 
 //DELETE BOARD.
-Route::get('taskboard/{id}/delete', array(
-	'before' => 'auth', function($id=null)
+Route::get('taskboard/{id}/{bid}/delete', array(
+	'before' => 'auth', function($id, $bid)
 {
 	$taskboardController = new TaskboardController;
-    return $taskboardController->deleteTaskboard($id);
+    return $taskboardController->deleteTaskboard($id, $bid);
 }));
 
 Route::post('/addteam', array(
@@ -109,6 +109,9 @@ Route::get('/gettesttaskboard', 'TaskboardController@getTaskboard');
 
 //GET BOARD IN JSON FORMAT
 Route::get('/gettestuser', 'LoginController@userToJSON');
+
+//GET TEAM IN JSON FORMAT
+Route::get('/gettestteam', 'TeamController@getTeam');
 
 
 Route::get('/testq', 'TaskboardController@getAuthorizedUser');

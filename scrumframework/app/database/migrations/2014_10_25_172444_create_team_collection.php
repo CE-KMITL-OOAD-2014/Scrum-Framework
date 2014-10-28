@@ -14,9 +14,7 @@ class CreateTeamCollection extends Migration {
     {
         Schema::create('teams', function ($collection)
         {
-            $collection->increments('id');
-            $collection->string('name')->unique();
-            $collection->timestamps();
+            
         });
     }
 

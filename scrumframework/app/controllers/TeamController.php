@@ -34,7 +34,7 @@ class TeamController extends \BaseController {
         $data = Input::all();
         $name = Input::get('teamname');
         $rules = array(
-            'teamname' => 'required|min:3|max:64'
+            'teamname' => 'required|min:3|max:64|unique:teams'
         );
         $validator = Validator::make($data, $rules);
 
@@ -47,15 +47,31 @@ class TeamController extends \BaseController {
         {
             $team = new Team;
             $team->name = Input::get('teamname');
-            $creator = Auth::user();
-            $team->master = $creator->_id;
-            $team = $creator->teams()->save($team);
+            $team->master =  Auth::user()->_id;
+            $team =  Auth::user()->teams()->save($team);
             $team->save();
-
             return Redirect::route('main');
         }
     }
 
+     public function getTeam($id=null)
+    {
+        if($id==null)
+        {
+            $teams = Auth::user()->teams()->get();
+            return Response::json($teams->toArray());
+        }
+    /*    else
+        {
+            $taskboards = Taskboard::find($id);
+            if($taskboards==null){return Redirect::route('404');}
+            $boardname = $taskboards->name;
+            //return View::make('login', array('boardname'=> $boardname));
+            return View::make('login', array('boardname'=> $boardname,'boardid' => $id));
+            //return 'boardname='.$boardname;
+            //return Response::json($taskboards->toArray());
+        }*/
+    }
 
     /**
      * Display the specified resource.
