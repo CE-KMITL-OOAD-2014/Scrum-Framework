@@ -65,17 +65,20 @@
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="myModalLabel">Create new board</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body row">
                         <div class="form-group">
-                            <div ng-controller="SelectController">
-                                <div class="col-xs-3">
-                                    <label for="BoardName">Board name</label>
-                                </div>
-                                <div class="col-xs-6">
-                                    <input type="text" class="form-control" id="board_name" placeholder="Board name" name="boardname" required>
-                                </div>   
-                                <select class="btn btn-info" ng-model="myTeam" ng-options="team.name for team in teams"></select>
-                                <input type="hidden" name="team" value="@{{myTeam.name}}" >
+                            <div ng-controller="ShowteamController">
+                                <div class="col-xs-12">
+                                    <div class="col-xs-6">
+                                        <label for="BoardName">Board name</label>
+                                        <input type="text" class="form-control" id="board_name" placeholder="Board name" name="boardname" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <label for="BoardName">Select Team</label> 
+                                        <select class="btn btn-info" ng-model="myTeam" ng-options="team.name for team in teams"></select>
+                                        <input type="hidden" name="team" value="@{{myTeam._id}}" >
+                                    </div>
+                                </div>    
                             </div>
                         </div>
                     </div>
@@ -98,5 +101,6 @@
     <script src="{{url('media/js/angularjs/angular-dragdrop.min.js');}}"></script>
     <script src="{{url('media/js/angularjs/scrumframework.js');}}"></script>
     <script src="{{url('media/js/angularjs/selectteam.js');}}"></script>
+    <script src="{{url('media/js/angularjs/showteam.js');}}"></script>
 </body>
 </html>

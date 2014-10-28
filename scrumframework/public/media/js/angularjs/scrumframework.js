@@ -4,7 +4,7 @@ angular.module('scrumFramework',  ['ngDragDrop'])
          
             success(function(data, status, headers, config) {
                 $scope.boardname = data;
-            //  alert(data[2].name);
+                  //alert(data[0].name);
             //  alert($scope.boardname[2]._id);
             //  alert($scope.boardname[2].name);
                 $scope.list0 = [

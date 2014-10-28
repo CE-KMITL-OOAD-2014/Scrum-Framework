@@ -26,15 +26,33 @@ class TaskboardController extends \BaseController {
         else {
             $taskboard = new Taskboard;
             $taskboard->name = Input::get('boardname');
-            $currentUser = Auth::user();
-            $taskboard = $currentUser->taskboards()->save($taskboard);
+            $taskboard->teams = Input::get('team');
+          //  $teams = Team::all();
+            $team = Team::find($taskboard->teams);
+            //->taskboards()->save($team);
+           // Team::find($taskboard->teams)->taskboards = $taskboard->_id;
+            //$taskboard =  Team::find($taskboard->teams)->taskboards->save($taskboard);
+         //   $taskboard = $team->taskboards()->save(array('taskboards' => $taskboard ));
+         //   $taskboard =  $team->save($taskboard);
+                           // $team=$team->save($taskboard);
+        //   $taskboard=->taskboards->save($taskboard);
+                $team = Auth::user()->teams()->save($team->taskboards());
+              //  $team->taskboards = $taskboard->id;
+               // $team->save();
+          //  $team->save($taskboard->id);
+       //     $team = $team->taskboards->save($taskboard);
+          //  $team->taskboards = $team->save($taskboard);   //Yes
+
             $taskboard->save();
 
             $email = Auth::user()->email;
             Session::flash('email',$email);
             Session::flash('boardname',$boardname);
             //return View::make('login')->withInput(Input::except('password'));
-            return Redirect::route('main');
+           // return Response::json($team->toArray());
+     //return var_dump($team);
+           // return Redirect::route('main');
+            return $team;
         }
     }
 

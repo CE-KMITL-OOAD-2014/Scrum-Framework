@@ -5,8 +5,14 @@
 		<div class="col-xs-3">
     		<input type="text" class="form-control" placeholder="Team name" name="teamname" required>
   		</div>
-		<button type="submit" class="btn primary">Add Team</button>
+		<button type="submit" class="btn primary">Create Team</button>
 	</form>
+	<div ng-controller="ShowteamController">
+		<div class="col-md-12 btn btn-primary" ng-repeat="tname in teams" ng-show="tname.name" ng-model="teams" style="margin-left:1%;">
+			<a  href="/taskboard/@{{tname._id}}"  style="color:#fff; text-decoration:none;">@{{tname.name}}	</a>
+			<a href="/taskboard/@{{tname._id}}/delete"><button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button></a>
+		</div>
+	</div>
 </div>
 
 	<ul>

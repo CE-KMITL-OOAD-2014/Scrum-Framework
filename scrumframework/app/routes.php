@@ -110,6 +110,9 @@ Route::get('/gettesttaskboard', 'TaskboardController@getTaskboard');
 //GET BOARD IN JSON FORMAT
 Route::get('/gettestuser', 'LoginController@userToJSON');
 
+//GET TEAM IN JSON FORMAT
+Route::get('/gettestteam', 'TeamController@getTeam');
+
 
 Route::get('/testq', 'TaskboardController@getAuthorizedUser');
 
