@@ -3,9 +3,14 @@ angular.module('scrumFramework',  ['ngDragDrop'])
         $http.get('/gettaskboard').
          
             success(function(data, status, headers, config) {
-                $scope.boardname = data;
+                $scope.data1 = data;
+         //       $scope.taskboards = [];
+    //            alert($scope.data1);
+          //     $scope.data2 = data.taskboards;
+             //   alert(data2);
+    //             alert('5555');
                   //alert(data[0].name);
-            //  alert($scope.boardname[2]._id);
+          //    alert($scope.boardname[1].taskboards[0].name);
             //  alert($scope.boardname[2].name);
                 $scope.list0 = [
                     { 'description': 'test', 'drag': true },

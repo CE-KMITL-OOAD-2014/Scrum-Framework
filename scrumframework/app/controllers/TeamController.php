@@ -34,7 +34,7 @@ class TeamController extends \BaseController {
         $data = Input::all();
         $name = Input::get('teamname');
         $rules = array(
-            'teamname' => 'required|min:3|max:64'
+            'teamname' => 'required|min:3|max:64|unique:teams'
         );
         $validator = Validator::make($data, $rules);
 
