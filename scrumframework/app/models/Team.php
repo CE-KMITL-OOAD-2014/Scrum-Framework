@@ -17,4 +17,8 @@ class Team extends Eloquent {
         return $this->belongsToMany('User', null, 'teams', 'teamMembers');
     }
 
+    public function taskboards()
+    {
+        return $this->embedsMany('Taskboard');
+    }
 }
