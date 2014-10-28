@@ -19,6 +19,6 @@ class Team extends Eloquent {
 
     public function taskboards()
     {
-        return $this->belongsToMany('Taskboard', null, 'teams', 'taskboards');
+        return $this->embedsMany('Taskboard');
     }
 }

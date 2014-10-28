@@ -22,17 +22,19 @@ class TaskboardController extends \BaseController {
             return Redirect::to('/')->withErrors($validator);
         }
 
-        else {
+        else
+        {
             $taskboard = new Taskboard;
             $taskboard->name = Input::get('boardname');
             $currentUser = Auth::user();
-            $taskboard = $currentUser->taskboards()->save($taskboard);
+            $team = $currentUser->teams()->first();
+            $taskboard = $team->taskboards()->save($taskboard);
+            //$taskboard = $currentUser->taskboards()->save($taskboard);
             $taskboard->save();
 
             $email = Auth::user()->email;
             Session::flash('email',$email);
             Session::flash('boardname',$boardname);
-            //return View::make('login')->withInput(Input::except('password'));
             return Redirect::route('main');
         }
     }
@@ -41,7 +43,8 @@ class TaskboardController extends \BaseController {
     {
         if($id==null)
         {
-            $taskboards = Auth::user()->taskboards()->get();
+            $taskboards = Auth::user()->teams()->first()->taskboards;
+            //$team = Auth::user()->teams()->first();
             return Response::json($taskboards->toArray());
         }
         else
