@@ -49,7 +49,7 @@ class TaskboardController extends \BaseController {
         }
         else
         {
-            $taskboards = Taskboard::find($id);
+            $taskboards = Auth::user()->teams()->first()->taskboards->where('_id', '==', $id)->first();
             if($taskboards==null){return Redirect::route('404');}
             $boardname = $taskboards->name;
             //return View::make('login', array('boardname'=> $boardname));
