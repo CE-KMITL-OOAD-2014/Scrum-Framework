@@ -7,6 +7,11 @@ class TeamController extends \BaseController {
      *
      * @return Response
      */
+   public function __construct(Team $team)
+    {
+        $this->team = $team;
+    }
+
     public function index()
     {
         //
@@ -29,7 +34,7 @@ class TeamController extends \BaseController {
      *
      * @return Response
      */
-    public function store()
+    public function store(Team $team)
     {
         $data = Input::all();
         $name = Input::get('teamname');
@@ -45,7 +50,6 @@ class TeamController extends \BaseController {
         }
         else
         {
-            $team = new Team;
             $team->name = Input::get('teamname');
             $team->master =  Auth::user()->_id;
             $team =  Auth::user()->teams()->save($team);
