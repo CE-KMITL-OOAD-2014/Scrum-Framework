@@ -93,7 +93,7 @@ Directory: https://github.com/CE-KMITL-OOAD-2014/Scrum-Framework/blob/master/scr
 **สิ่งที่ใช้ในการทดลอง**
 
 1. อุปกรณ์ที่สามารถเข้าใช้งาน Web Browser ได้ เช่น Laptop เป็นต้น
-2. URL ส าหรับเข้าถึง Web Application นี้ (Scrum Framework) ในที่นี้คือ scrumframework01.cloudapp.net
+2. URL สำหรับเข้าถึง Web Application นี้ (Scrum Framework) ในที่นี้คือ scrumframework01.cloudapp.net
 3. Virtual Machine ที่ deploy scrum framework application และ run บน Microsoft Azure
 4. E-Mail และ Password ที่ใช้ในการสมัคร
 5. ชื่อของ Board ที่จะกรอกตอนสร้าง Board
