@@ -36,13 +36,18 @@ class TaskboardController extends \BaseController {
           
             $taskboard->save();
 
-            $email = Auth::user()->email;
-            Session::flash('email',$email);
-            Session::flash('boardname',$boardname);
-            // return Redirect::route('main');
             return Redirect::route('main');
         }
     }
+
+  public function processGetTaskboard($tid=null, $bid=null)
+     {
+        $team = Team::find($tid);
+        if($team===null){return 'No Team Found.';}
+        $team = $team->taskboards()->find($bid); 
+        $boardname = $team['name'];
+        return $boardname; 
+     }
 
     public function getTaskboard($tid=null, $bid=null)
     {
@@ -54,12 +59,11 @@ class TaskboardController extends \BaseController {
         }
         else
         {
-            $team = Team::find($tid);
-            $team = $team->taskboards()->find($bid); 
-            $boardname = $team['name']; 
+            $boardname =  self::processGetTaskboard($tid, $bid);
             return View::make('login', array('boardname'=> $boardname,'boardid' => $bid));
         }
     }
+
 
     public function getAuthorizedUser()
     {
