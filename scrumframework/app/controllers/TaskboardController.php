@@ -33,7 +33,7 @@ class TaskboardController extends \BaseController {
             $team = Team::find($taskboard->teams);
             //Save taskboards into team.
             $taskboard = $team->taskboards()->save($taskboard);
-          
+
             $taskboard->save();
 
             $email = Auth::user()->email;
@@ -55,8 +55,8 @@ class TaskboardController extends \BaseController {
         else
         {
             $team = Team::find($tid);
-            $team = $team->taskboards()->find($bid); 
-            $boardname = $team['name']; 
+            $team = $team->taskboards()->find($bid);
+            $boardname = $team['name'];
             return View::make('login', array('boardname'=> $boardname,'boardid' => $bid));
         }
     }

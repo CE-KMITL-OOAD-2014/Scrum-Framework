@@ -9,6 +9,9 @@
 		"laravel/framework": "4.2.*",
 		"jenssegers/mongodb": "*"
 	},
+    "require-dev": {
+		"mockery/mockery": "dev-master"
+	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
