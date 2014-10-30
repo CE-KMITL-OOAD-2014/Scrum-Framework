@@ -67,8 +67,11 @@ Directory: https://github.com/CE-KMITL-OOAD-2014/Scrum-Framework/blob/master/scr
 5. ชื่อของ Board ที่จะกรอกตอนสร้าง Board
 
 **ผลที่ได้จากการทดลอง**
+
   -
+
 **สรุปผลการทดลอง**
+
   -
 
 **การทดลองที่ 2:** การแสดงผล User Interface ในส่วนของการเคลื่อนย้าย Sprint Backlog
@@ -78,6 +81,7 @@ Directory: https://github.com/CE-KMITL-OOAD-2014/Scrum-Framework/blob/master/scr
 **สิ่งที่จะวัด:** ตำแหน่งของ Sprint Backlog เมื่อลาก Sprint Backlog เคลื่อนย้ายจาก To do ไปยัง Doing
 
 **วิธีทำการทดลอง**
+
 1. เข้าสู่แอปพลิเคชัน, กดปุ่ม sign up, กรอกรายละเอียดต่าง ๆ เพื่อเข้าเป็นสมาชิกของระบบ
 2. กดปุ่ม Log in เพื่อผ่านกระบวนการยืนยันตัวตนของระบบ
 3. กดปุ่ม +Board ซึ่งเป็น Dropdown list จะแสดงรายละเอียดของ Dropdown list ออกมา ให้กดปุ่ม Add new board เพื่อสร้าง Board ใหม่
@@ -87,6 +91,7 @@ Directory: https://github.com/CE-KMITL-OOAD-2014/Scrum-Framework/blob/master/scr
 7. ตรวจสอบว่า Sprint Backlog ถูกย้ายมาส่วนของ Doing บน Board หรือไม่
 
 **สิ่งที่ใช้ในการทดลอง**
+
 1. อุปกรณ์ที่สามารถเข้าใช้งาน Web Browser ได้ เช่น Laptop เป็นต้น
 2. URL ส าหรับเข้าถึง Web Application นี้ (Scrum Framework) ในที่นี้คือ scrumframework01.cloudapp.net
 3. Virtual Machine ที่ deploy scrum framework application และ run บน Microsoft Azure
@@ -95,6 +100,9 @@ Directory: https://github.com/CE-KMITL-OOAD-2014/Scrum-Framework/blob/master/scr
 6. รายละเอียดของ Sprint Backlog ในการสร้าง Sprint Backlog
 
 **ผลที่ได้จากการทดลอง**
+
   -
+
 **สรุปผลการทดลอง**
+
   -
