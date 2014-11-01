@@ -7,7 +7,6 @@ class Team extends Eloquent {
     protected $collection = 'teams';
     protected $connection = 'mongodb';
 
-
     public function getTeam()
     {
         return $this;
@@ -31,7 +30,7 @@ class Team extends Eloquent {
         else{
             $temp = $this->po;
             array_push($temp, $name);
-            $this->po = $temp;   
+            $this->po = $temp;
         }
         $this->save();
         return true;
@@ -62,6 +61,31 @@ class Team extends Eloquent {
         {
             return false;
         }
+    }
 
+    public function addTeaminUsers($teammember, $teamid)
+    {
+        $user = User::where('email',$teammember)->first();
+        if(!array_key_exists('teams', $user))
+        {
+            $user->teams = array($teamid);
+        }
+        else
+        {
+            $temp = $user->teams;
+            array_push($temp, $teamid);
+            $user->teams = $temp;  
+        }
+        $user->save();
+    }
+
+    public function addUserInteamMembers($teammember, $teamid)
+    {
+        //Add teamMembers field.
+        $user = User::where('email',$teammember)->first();
+        $temp = $this->teamMembers;
+        array_push($temp, $user->_id);
+        $this->teamMembers = $temp;
+        $this->save();
     }
 }

@@ -83,14 +83,16 @@ class TeamController extends \BaseController {
         {
             if(Input::get('role')=='po')
             {
-                $team->addpo(Input::get('emailmember'));
-                return Redirect::to('/main');
+                $team->addpo($teammember);
             }
             else if(Input::get('role')=='tm')
             {
-                $team->addtm(Input::get('emailmember'));
-                return Redirect::to('/main');
+                $team->addtm($teammember);
             }
+            $team->addTeaminUsers($teammember,$teamid);
+            $team->addUserInteamMembers($teammember,$teamid);
+            
+              return Redirect::to('/main');
         }
          
 
