@@ -10,6 +10,7 @@
 |
  */
 
+
 //Blade::setContentTags('<%', '%>');			// for variables and all things Blade
 //Blade::setEscapedContentTags('<%%', '%%>'); 	// for escaped data
 
@@ -50,7 +51,8 @@ Route::post('/taskboard', array(
 	'before' => 'auth',function()
 	{
 		//$boardname = Input::get('boardname');
-        $taskboardController = new TaskboardController;
+		
+        $taskboardController = new TaskboardController();
 		//show email @ navbar
 		// $email = Auth::user()->email;
 		// Session::flash('email',$email);
@@ -76,11 +78,21 @@ Route::get('taskboard/{id}/{bid}/delete', array(
     return $taskboardController->deleteTaskboard($id, $bid);
 }));
 
+//ADD TEAM
 Route::post('/addteam', array(
 	'before' => 'auth',function()
 	{
-        $teamController = new TeamController;
+        $teamController = new TeamController();
         return $teamController->store();
+	}
+));
+
+//ADD USER IN TEAM.
+Route::post('/adduser', array(
+	'before' => 'auth',function()
+	{
+         $teamController = new TeamController;
+         return $teamController->adduser();
 	}
 ));
 

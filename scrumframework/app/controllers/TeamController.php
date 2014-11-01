@@ -1,16 +1,11 @@
 <?php
 
 class TeamController extends \BaseController {
-
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-   public function __construct(Team $team)
-    {
-        $this->team = $team;
-    }
 
     public function index()
     {
@@ -34,7 +29,7 @@ class TeamController extends \BaseController {
      *
      * @return Response
      */
-    public function store(Team $team)
+    public function store()
     {
         $data = Input::all();
         $name = Input::get('teamname');
@@ -50,8 +45,9 @@ class TeamController extends \BaseController {
         }
         else
         {
+            $team = new Team;
             $team->name = Input::get('teamname');
-            $team->master =  Auth::user()->_id;
+            $team->master =  Auth::user()->email;
             $team =  Auth::user()->teams()->save($team);
             $team->save();
             return Redirect::route('main');
@@ -77,16 +73,40 @@ class TeamController extends \BaseController {
         }*/
     }
 
+    public function adduser()
+    {
+         //Find Team for add role and member in team collection.
+        $teamid = Input::get('teamid');
+        $team = Team::find($teamid);
+        $teammember = Input::get('emailmember');
+        if($team->checkuser($teammember))
+        {
+            if(Input::get('role')=='po')
+            {
+                $team->addpo(Input::get('emailmember'));
+                return Redirect::to('/main');
+            }
+            else if(Input::get('role')=='tm')
+            {
+                $team->addtm(Input::get('emailmember'));
+                return Redirect::to('/main');
+            }
+        }
+         
+
+         //Find member in users collection for add team.
+        return "Can't add this email.";
+    }
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
-    {
-        //
-    }
+   public function show($id)
+   {
+        
+   }
 
 
     /**
