@@ -21,13 +21,17 @@
 			</div>
 			<div class="col-md-4" style="margin-top:2%; margin-bottom:2%;">
 				<ul>
-					<li>Scrummaster : @{{tname.master}}</li>
+					<li class="btn btn-warning">Scrummaster : @{{tname.master}}</li>
 				</ul>
 				<ul ng-repeat="po in tname.po" ng-show="po" ng-model="data1">
-					<li>Product Owner : @{{po}}</li>
+					<li class="btn btn-info">Product Owner : @{{po}}
+						<a href="/deletetaskboard/po/@{{tname._id}}/@{{po}}"><button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button></a>
+					</li>
 				</ul>
 				<ul ng-repeat="tm in tname.tm" ng-show="tm" ng-model="data1">
-					<li>Team Member : @{{tm}}</li>
+					<li class="btn btn-danger">Team Member : @{{tm}}
+						<a href="/deletetaskboard/tm/@{{tname._id}}/@{{tm}}"><button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button></a>
+					</li>
 				</ul>
 				<form role="form" method="post" action="{{url('/adduser')}}"> 
 					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="emailmember" style="display:inline; width:50%;" required> 

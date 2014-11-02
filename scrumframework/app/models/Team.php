@@ -88,4 +88,66 @@ class Team extends Eloquent {
         $this->teamMembers = $temp;
         $this->save();
     }
+
+    public function deletepo($poname)
+    {
+        $po = $this->po;
+        $key = array_search($poname,$po);
+        unset($po[$key]);
+        $this->po = $po;
+        $this->save();
+    }
+
+     public function deletetm($tmname)
+    {
+        $tm = $this->tm;
+        $key = array_search($tmname,$tm);
+        unset($tm[$key]);
+        $this->tm = $tm;
+        $this->save();
+    }
+
+      public function deleteInteamMembers($email)
+    {
+        $members = $this->teamMembers;
+        $user = User::where('email',$email)->first();
+        $key = array_search($user->_id,$members);
+        unset($members[$key]);
+        $this->teamMembers = $members;
+        $this->save();
+    }
+
+    public function findInPo($email)
+    {
+        $po = $this->po;
+        if($key = array_search($email,$po) !== false)
+        {
+            return true;
+        }
+        return false;
+    }
+
+     public function findInTm($email)
+    {
+        $tm = array();
+        if($this->tm != null)
+        {
+            $tm = $this->tm;
+        }
+        if($key = array_search($email,$tm) !== false)
+        {
+            return true;
+        }
+        return false;
+    }
+
+     public function findInMaster($email)
+    {
+        $tm = $this->master;
+        if($tm === $email)
+        {
+            return true;
+        }
+        return false;
+    }
 }

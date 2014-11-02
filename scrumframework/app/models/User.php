@@ -60,4 +60,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $this->errors = $validator->messages();
         return false;
     }
+
+    public function deleteteams($tid)
+    {
+        $team = $this->teams;
+        $key = array_search($tid,$team);
+        unset($team[$key]);
+        $this->teams = $team;
+        $this->save(); 
+    }
 }

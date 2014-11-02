@@ -99,6 +99,39 @@ class TeamController extends \BaseController {
          //Find member in users collection for add team.
         return "Can't add this email.";
     }
+
+    public function deletepo($tid, $poname)
+    {
+        //Delete in Teams Collection.
+        $team = Team::find($tid);
+        $team->deletepo($poname);
+          $team->deleteInteamMembers($poname);
+        //Delete in Users Collection.
+         if(!($team->findInTm($poname) && ($team->findInMaster($poname))))
+        {
+            $user = User::where('email', $poname)->first();
+            $user->deleteteams($poname);
+        }
+
+        return Redirect::to('/main');       
+    }
+
+      public function deletetm($tid, $tmname)
+    {
+        //Delete in Teams Collection.
+        $team = Team::find($tid);
+        $team->deletetm($tmname);
+        $team->deleteInteamMembers($tmname);
+
+        //Delete in Users Collection.
+        if(!($team->findInPo($tmname) && ($team->findInMaster($tmname))))
+        {
+            $user = User::where('email', $tmname)->first();
+            $user->deleteteams($tmname);
+        }
+
+        return Redirect::to('/main');       
+    }
     /**
      * Display the specified resource.
      *

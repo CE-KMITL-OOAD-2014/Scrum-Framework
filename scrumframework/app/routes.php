@@ -78,6 +78,22 @@ Route::get('taskboard/{id}/{bid}/delete', array(
     return $taskboardController->deleteTaskboard($id, $bid);
 }));
 
+//DELETE PO.
+Route::get('/deletetaskboard/po/{tid}/{poname}', array(
+	'before' => 'auth', function($tid, $poname)
+{
+	$teamController = new TeamController;
+    return $teamController->deletepo($tid, $poname);
+}));
+
+//DELETE TM.
+Route::get('/deletetaskboard/tm/{tid}/{tmname}', array(
+	'before' => 'auth', function($tid, $tmname)
+{
+	$teamController = new TeamController;
+    return $teamController->deletetm($tid, $tmname);
+}));
+
 //ADD TEAM
 Route::post('/addteam', array(
 	'before' => 'auth',function()
