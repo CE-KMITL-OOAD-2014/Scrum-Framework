@@ -33,7 +33,7 @@ class TaskboardController extends \BaseController {
             $team = Team::find($taskboard->teams);
             //Save taskboards into team.
             $taskboard = $team->taskboards()->save($taskboard);
-          
+
             $taskboard->save();
 
             return Redirect::route('main');
