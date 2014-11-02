@@ -1,12 +1,12 @@
 <?php
 
 class TeamController extends \BaseController {
-
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
+
     public function index()
     {
         //
@@ -47,7 +47,7 @@ class TeamController extends \BaseController {
         {
             $team = new Team;
             $team->name = Input::get('teamname');
-            $team->master =  Auth::user()->_id;
+            $team->master =  Auth::user()->email;
             $team =  Auth::user()->teams()->save($team);
             $team->save();
             return Redirect::route('main');
@@ -73,16 +73,75 @@ class TeamController extends \BaseController {
         }*/
     }
 
+    public function adduser()
+    {
+         //Find Team for add role and member in team collection.
+        $teamid = Input::get('teamid');
+        $team = Team::find($teamid);
+        $teammember = Input::get('emailmember');
+        if($team->checkuser($teammember))
+        {
+            if(Input::get('role')=='po')
+            {
+                $team->addpo($teammember);
+            }
+            else if(Input::get('role')=='tm')
+            {
+                $team->addtm($teammember);
+            }
+            $team->addTeaminUsers($teammember,$teamid);
+            $team->addUserInteamMembers($teammember,$teamid);
+            
+              return Redirect::to('/main');
+        }
+         
+
+         //Find member in users collection for add team.
+        return "Can't add this email.";
+    }
+
+    public function deletepo($tid, $poname)
+    {
+        //Delete in Teams Collection.
+        $team = Team::find($tid);
+        $team->deletepo($poname);
+          $team->deleteInteamMembers($poname);
+        //Delete in Users Collection.
+         if(!($team->findInTm($poname) && ($team->findInMaster($poname))))
+        {
+            $user = User::where('email', $poname)->first();
+            $user->deleteteams($poname);
+        }
+
+        return Redirect::to('/main');       
+    }
+
+      public function deletetm($tid, $tmname)
+    {
+        //Delete in Teams Collection.
+        $team = Team::find($tid);
+        $team->deletetm($tmname);
+        $team->deleteInteamMembers($tmname);
+
+        //Delete in Users Collection.
+        if(!($team->findInPo($tmname) && ($team->findInMaster($tmname))))
+        {
+            $user = User::where('email', $tmname)->first();
+            $user->deleteteams($tmname);
+        }
+
+        return Redirect::to('/main');       
+    }
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
-    {
-        //
-    }
+   public function show($id)
+   {
+        
+   }
 
 
     /**

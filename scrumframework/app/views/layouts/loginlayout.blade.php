@@ -2,6 +2,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{{url('media/css/bootstrap.min.css');}}">
+    <link rel="stylesheet" type="text/css" href="{{url('media/select/css/bootstrap-select.min.css');}}">
     <link rel="stylesheet" type="text/css" href="{{url('media/font-awesome/css/font-awesome.min.css');}}">
     <style>
             .pink{
@@ -97,6 +98,8 @@
     <script src="{{url('media/js/jquery-1.11.1.min.js');}}"></script>
     <script src="{{url('media/js/jquery-ui.min.js');}}"></script>		
     <script src="{{url('media/js/bootstrap.min.js');}}"></script>
+    <script src="{{url('media/select/js/bootstrap-select.min.js');}}"></script>
+    <script src="{{url('media/js/bootstrap-angular-select.js');}}"></script>
     <script src="{{url('media/js/angularjs/angular.min.js');}}"></script>
     <script src="{{url('media/js/angularjs/angular-dragdrop.min.js');}}"></script>
     <script src="{{url('media/js/angularjs/scrumframework.js');}}"></script>
