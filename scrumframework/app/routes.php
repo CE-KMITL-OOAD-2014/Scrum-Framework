@@ -51,7 +51,7 @@ Route::post('/taskboard', array(
 	'before' => 'auth',function()
 	{
 		//$boardname = Input::get('boardname');
-		
+
         $taskboardController = new TaskboardController();
 		//show email @ navbar
 		// $email = Auth::user()->email;
