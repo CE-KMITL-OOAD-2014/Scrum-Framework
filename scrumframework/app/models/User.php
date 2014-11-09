@@ -46,17 +46,19 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     {
         return $this->belongsToMany('Team', null, 'teamMembers', 'teams');
     }
-    
+
     public function validate()
     {
         $data = Input::all();
-         $rules = array(
+        $rules = array(
         'email' => 'required|email|min:5|max:32|unique:users', //don't forget to add unique:users rule
         'password' => 'required|min:6',
-        'password_confirmation' => 'required|same:password' 
+        'password_confirmation' => 'required|same:password'
         );
-         $validator = Validator::make($data, $rules);
-        if ($validator->passes()) return true;
+        $validator = Validator::make($data, $rules);
+        if ($validator->passes()) {
+            return true;
+        }
         $this->errors = $validator->messages();
         return false;
     }
@@ -67,6 +69,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $key = array_search($tid,$team);
         unset($team[$key]);
         $this->teams = $team;
-        $this->save(); 
+        $this->save();
     }
 }

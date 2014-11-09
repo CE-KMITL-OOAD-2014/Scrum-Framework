@@ -17,6 +17,7 @@ ClassLoader::addDirectories(array(
 	app_path().'/controllers',
 	app_path().'/models',
 	app_path().'/database/seeds',
+	app_path().'/core',
 
 ));
 
@@ -84,3 +85,16 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+
+/*
+|--------------------------------------------------------------------------
+| IoC Repositories bindings
+|--------------------------------------------------------------------------
+|
+|
+|
+|--------------------------------------------------------------------------
+*/
+require app_path().'/ioc.php';
+App::bind("\core\IUserRepository","\core\UserRepository");
