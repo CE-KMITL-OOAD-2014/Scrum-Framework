@@ -43,7 +43,7 @@
         <ul class="thumbnails">
           <div class="col-md-3">
             <h2><b><center>To do</center></b></h2>
-            <div class="thumbnail" data-drop="true" ng-model='list1' data-jqyoui-options="optionsList1" jqyoui-droppable="{multiple:true,onDrop:'dropCallbacklist1'}">
+            <div class="thumbnail" data-drop="true" ng-model='list1' data-jqyoui-options="optionsList1" jqyoui-droppable="{multiple:true,onDrop:'dropCallbacklist'}">
               <div class="caption">
                 <div class="btn pink btn-draggable" ng-repeat="pb in list1" ng-show="pb.description" data-drag="@{{pb.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: @{{$index}},animate:true}">@{{pb.description}}
                   <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
@@ -62,7 +62,7 @@
           </div>
           <div class="col-md-3">
             <h2><b><center>Doing</center></b></h2>
-            <div class="thumbnail" data-drop="true" ng-model='list2' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list2])'}"  jqyoui-droppable="{multiple:true, onDrop:'dropCallbacklist2'}">
+            <div class="thumbnail" data-drop="true" ng-model='list2' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list2])'}"  jqyoui-droppable="{multiple:true, onDrop:'dropCallbacklist'}">
               <div class="caption">
                 <div class="btn pink btn-draggable" ng-repeat="pb in list2" ng-show="pb.description" data-drag="@{{pb.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: @{{$index}},animate:true}">@{{pb.description}}
                   <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
@@ -75,7 +75,7 @@
           </div>
           <div class="col-md-3">
             <h2><b><center>Done</center></b></h2>
-            <div class="thumbnail" data-drop="true" ng-model='list3' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list3])'}"  jqyoui-droppable="{multiple:true, onDrop:'dropCallbacklist3'}">
+            <div class="thumbnail" data-drop="true" ng-model='list3' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list3])'}"  jqyoui-droppable="{multiple:true, onDrop:'dropCallbacklist'}">
               <div class="caption">
                 <div class="btn pink btn-draggable" ng-repeat="pb in list3" ng-show="pb.description" data-drag="@{{pb.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list3" jqyoui-draggable="{index: @{{$index}},animate:true}">@{{pb.description}}
                   <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>

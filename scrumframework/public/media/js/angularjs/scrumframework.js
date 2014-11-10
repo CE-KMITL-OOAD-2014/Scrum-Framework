@@ -12,20 +12,17 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                   //alert(data[0].name);
           //    alert($scope.boardname[1].taskboards[0].name);
             //  alert($scope.boardname[2].name);
-                $scope.list0 = [
-                    { 'description': 'test', 'drag': true },
-                    { 'title': null, 'drag': true }];
              
                 $scope.addProductbacklog = function() {
                     $scope.list0.push({description:$scope.addTitle, 'drag': true});
                     $scope.addTitle = '';
-                    $scope.dropCallbacklist0();
+                    $scope.dropCallbacklist();
                 };
 
                  $scope.addTodo = function() {
                     $scope.list1.push({title:$scope.addSprint1, 'drag': true});
                     $scope.addSprint1 = '';
-                    $scope.dropCallbacklist1();
+                    $scope.dropCallbacklist();
                 };
 
 
@@ -48,19 +45,12 @@ angular.module('scrumFramework',  ['ngDragDrop'])
 
                 $scope.dropSuccessHandler = function($event,index,array){
                     array.splice(index,1);
-                     alert("666");
                 };
                     
                 $scope.onDrop = function($event,$data,array){
                     array.push($data);
                 };
 
-                $scope.list1 = [];
-                $scope.list2 = [
-                { 'title': 'Item 1', 'drag': true },
-                { 'title': 'Item 2', 'drag': true },
-                { 'title': 'Item 3', 'drag': true }]; 
-                $scope.list3 = [];
 
              //   var res = $http.post('/recievedboard', test);
                
@@ -68,32 +58,39 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                 angular.forEach($scope.data1, function(item, key) {
                     if(item._id == $scope.teamid)
                     {
-                        $scope.nowteam = $scope.data1[key]._id;
+                        $scope.idnowteam = $scope.data1[key]._id;
+                        $scope.objnowteam = $scope.data1[key];
                     }
                 })
-                //alert($scope.nowteam.taskboards[0].name);
+
+                angular.forEach($scope.objnowteam.taskboards, function(item, key) {
+                  if(item._id.$id == $scope.boardid)
+                  {
+                      $scope.objboard = item;
+                  }
+                })
+
+                $scope.list0 = $scope.objboard.list0;
+                $scope.list1 = $scope.objboard.list1;
+                $scope.list2 = $scope.objboard.list2;
+                $scope.list3 = $scope.objboard.list3;
+
+            //    alert($scope.nowteam.taskboards[0].name);
             //    alert($scope.data1[0]._id);
                 //alert($scope.boardid);
           //      alert($scope.teamid);
+     //           alert($scope.objnowteam.taskboards[0].list1);
 
-                var currentteam = $scope.nowteam;
+                var currentteam = $scope.idnowteam;
                 var curentboard = $scope.boardid;
                 var pbacklog = $scope.list0;
+                var sprintbacklog1 = $scope.list1;
+                var sprintbacklog2 = $scope.list2;
+                var sprintbacklog3 = $scope.list3;
 
-                $scope.dropCallbacklist0 = function() {
-                    var allsend  = { team : $scope.nowteam, board : $scope.boardid, list:'list0', pbacklog : $scope.list0};
-                    $http.post('/recievedboard', allsend);
-                };
-                $scope.dropCallbacklist1 = function() {
-                    var allsend  = { team : $scope.nowteam, board : $scope.boardid, list:'list1', pbacklog : $scope.list1};
-                    $http.post('/recievedboard', allsend);
-                };
-                $scope.dropCallbacklist2 = function() {
-                    var allsend  = { team : $scope.nowteam, board : $scope.boardid, list:'list2', pbacklog : $scope.list2};
-                    $http.post('/recievedboard', allsend);
-                };
-                $scope.dropCallbacklist3 = function() {
-                    var allsend  = { team : $scope.nowteam, board : $scope.boardid, list:'list3', pbacklog : $scope.list3};
+
+                $scope.dropCallbacklist = function() {
+                    var allsend  = { team : $scope.idnowteam, board : $scope.boardid, list0:$scope.list0, list1:$scope.list1, list2:$scope.list2, list3:$scope.list3 };
                     $http.post('/recievedboard', allsend);
                 };
 

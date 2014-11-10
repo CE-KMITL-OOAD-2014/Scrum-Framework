@@ -24,19 +24,31 @@ class SprintnameController extends BaseController {
 		$data = Input::all();
 		$myfile = fopen("/home/dscanon/newfile.txt", "w") or die("Unable to open file!");
 		$team = Team::find($data['team']);
-		$board = $team->taskboards::find('$id');
-		//$team[$data['list']] = $data['pbacklog'];
-	//	$team->save();
+		$board = $team->taskboards();
+		$currentboard = $board->find($data['board']);
+		// if($data['list']=='list0'){
+		// 	$currentboard->list0 = $data['pbacklog'];
+		// }
+		// elseif($data['list']=='list1'){
+		// 	$currentboard->list1 = $data['pbacklog'];
+		// }
+		// elseif($data['list']=='list2'){
+		// 	$currentboard->list2 = $data['pbacklog'];
+		// }
+		// elseif($data['list']=='list3'){
+		// 	$currentboard->list3 = $data['pbacklog'];
+		// }
+		$currentboard->list0 = $data['list0'];
+		$currentboard->list1 = $data['list1'];
+		$currentboard->list2 = $data['list2'];
+		$currentboard->list3 = $data['list1'];
+		$currentboard->save();
+		$board->save($currentboard);
 		fwrite($myfile, $team['name']);
-		// $txt = "Jane Doe\n";
 		fwrite($myfile, "Board = ");
-	//	fwrite($myfile, $board['name']);
+	//	fwrite($myfile, json_encode($currentboard->list1));
 		fwrite($myfile, "List ");
 		fclose($myfile);
-
-
-
-
 	}
 
 }
