@@ -29,6 +29,10 @@ class TaskboardController extends \BaseController {
             $taskboard->name = Input::get('boardname');
 
             $taskboard->teams = Input::get('team');
+            $taskboard->list0 = array();
+            $taskboard->list1 = array();
+            $taskboard->list2 = array();
+            $taskboard->list3 = array();
             //Find teams that map team root.
             $team = Team::find($taskboard->teams);
             //Save taskboards into team.
@@ -60,7 +64,7 @@ class TaskboardController extends \BaseController {
         else
         {
             $boardname =  self::processGetTaskboard($tid, $bid);
-            return View::make('login', array('boardname'=> $boardname,'boardid' => $bid));
+            return View::make('login', array('boardname'=> $boardname,'boardid' => $bid, 'teamid' => $tid));
         }
     }
 

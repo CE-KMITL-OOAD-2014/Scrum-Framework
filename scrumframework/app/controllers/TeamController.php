@@ -112,7 +112,6 @@ class TeamController extends \BaseController {
             $user = User::where('email', $poname)->first();
             $user->deleteteams($poname);
         }
-
         return Redirect::to('/main');       
     }
 

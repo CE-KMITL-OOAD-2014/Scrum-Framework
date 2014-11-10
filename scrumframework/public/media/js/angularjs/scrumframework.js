@@ -1,9 +1,9 @@
 angular.module('scrumFramework',  ['ngDragDrop'])
     .controller('TodoController', ['$scope','$http', function($scope, $http) {
         $http.get('/gettaskboard').
-         
             success(function(data, status, headers, config) {
                 $scope.data1 = data;
+              //  $scope.boardid = "555";
          //       $scope.taskboards = [];
     //            alert($scope.data1);
           //     $scope.data2 = data.taskboards;
@@ -19,12 +19,16 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                 $scope.addProductbacklog = function() {
                     $scope.list0.push({description:$scope.addTitle, 'drag': true});
                     $scope.addTitle = '';
+                    $scope.dropCallbacklist0();
                 };
 
                  $scope.addTodo = function() {
                     $scope.list1.push({title:$scope.addSprint1, 'drag': true});
                     $scope.addSprint1 = '';
+                    $scope.dropCallbacklist1();
                 };
+
+
              
                 $scope.remaining = function() {
                     var count = 0;
@@ -44,6 +48,7 @@ angular.module('scrumFramework',  ['ngDragDrop'])
 
                 $scope.dropSuccessHandler = function($event,index,array){
                     array.splice(index,1);
+                     alert("666");
                 };
                     
                 $scope.onDrop = function($event,$data,array){
@@ -57,10 +62,56 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                 { 'title': 'Item 3', 'drag': true }]; 
                 $scope.list3 = [];
 
+             //   var res = $http.post('/recievedboard', test);
+               
+           
+                angular.forEach($scope.data1, function(item, key) {
+                    if(item._id == $scope.teamid)
+                    {
+                        $scope.nowteam = $scope.data1[key]._id;
+                    }
+                })
+                //alert($scope.nowteam.taskboards[0].name);
+            //    alert($scope.data1[0]._id);
+                //alert($scope.boardid);
+          //      alert($scope.teamid);
+
+                var currentteam = $scope.nowteam;
+                var curentboard = $scope.boardid;
+                var pbacklog = $scope.list0;
+
+                $scope.dropCallbacklist0 = function() {
+                    var allsend  = { team : $scope.nowteam, board : $scope.boardid, list:'list0', pbacklog : $scope.list0};
+                    $http.post('/recievedboard', allsend);
+                };
+                $scope.dropCallbacklist1 = function() {
+                    var allsend  = { team : $scope.nowteam, board : $scope.boardid, list:'list1', pbacklog : $scope.list1};
+                    $http.post('/recievedboard', allsend);
+                };
+                $scope.dropCallbacklist2 = function() {
+                    var allsend  = { team : $scope.nowteam, board : $scope.boardid, list:'list2', pbacklog : $scope.list2};
+                    $http.post('/recievedboard', allsend);
+                };
+                $scope.dropCallbacklist3 = function() {
+                    var allsend  = { team : $scope.nowteam, board : $scope.boardid, list:'list3', pbacklog : $scope.list3};
+                    $http.post('/recievedboard', allsend);
+                };
+
+                // $http({
+                //     method: 'POST',
+                //     url: '/recievedboard',
+                //     data: $scope.nowteam
+                // }).success(function () {});
+
             }).
+
+
             error(function(data, status, headers, config) {
                 alert('error');
             });
+
+
+            //$http.post('/recievecboard', ).success(successCallback);
     }]);
 
 
