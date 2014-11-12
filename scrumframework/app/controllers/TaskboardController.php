@@ -64,7 +64,7 @@ class TaskboardController extends \BaseController {
         else
         {
             $boardname =  self::processGetTaskboard($tid, $bid);
-            return View::make('login', array('boardname'=> $boardname,'boardid' => $bid, 'teamid' => $tid));
+            return View::make('login', array('boardname'=> $boardname,'boardid' => $bid, 'teamid' => $tid, 'email' => Auth::user()->email));
         }
     }
 

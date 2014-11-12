@@ -69,23 +69,10 @@ Route::get('taskboard/{id}/{bid}', array(
     return $taskboardController->getTaskboard($id, $bid);
 }));
 
-// ACCESS BOARD V2
-Route::get('taskboard/{tid}/{bid}/{sprint}', array(
-	'before' => 'auth', function($tid, $bid, $sprint)
-{
-	$sprintController = new SprintnameController;
-    return $sprintController->show($tid, $bid, $sprint);
-}));
 
 //Recieve Board
 Route::post('/recievedboard', 'SprintnameController@store');
-// Route::get('/recievedboard', array(
-// 	'before' => 'auth',function()
-// 	{
-//        $test = new SprintnameController;
-//        return $test->test();
-// 	}
-// ));
+
 
 
 //DELETE BOARD.

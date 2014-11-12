@@ -12,7 +12,6 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                   //alert(data[0].name);
           //    alert($scope.boardname[1].taskboards[0].name);
             //  alert($scope.boardname[2].name);
-             
                 $scope.addProductbacklog = function() {
                     $scope.list0.push({description:$scope.addTitle, 'drag': true});
                     $scope.addTitle = '';
@@ -20,19 +19,22 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                 };
 
                  $scope.addTodo = function() {
-                    $scope.list1.push({title:$scope.addSprint1, 'drag': true});
+                    $scope.list1.push({title:$scope.addSprint1, 'drag': true, 'comments':[]});
                     $scope.addSprint1 = '';
                     $scope.dropCallbacklist();
                 };
 
 
-             
-                $scope.remaining = function() {
-                    var count = 0;
-                    angular.forEach($scope.todos, function(todo) {
-                    count += todo.done ? 0 : 1;
-                    });
-                    return count;
+                  $scope.addComment = function($index) {
+                   // alert($scope.list1[$index].drag);
+               //    alert($scope.list1[$index].comment);
+                   var temp = [{'comment':$scope.list1[$index].comment , 'email':$scope.email}];
+                  //  $scope.list1[$index].splice($index, 0, temp);
+                    $scope.list1[$index].comments.push({comment:$scope.list1[$index].comment , email:$scope.email});
+                     console.log($scope.list1[$index]);
+                    //$scope.comments.push({title:$scope.comment, email:$scope.email});
+                    $scope.list1[$index].comment = '';
+                    $scope.dropCallbacklist();
                 };
              
                 $scope.archive = function() {
