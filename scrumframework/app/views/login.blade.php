@@ -67,7 +67,7 @@
                 <div class="btn pink btn-draggable" ng-repeat="pb in list2" ng-show="pb.description" data-drag="@{{pb.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: @{{$index}},animate:true}">@{{pb.description}}
                   <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                 </div>
-                <div class="btn btn-info btn-draggable" ng-repeat="item in list2" ng-show="item.title" data-drag="@{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: @{{$index}},animate:true}" data-toggle="modal" data-target="#comment" draggable>@{{item.title}}
+                <div class="btn btn-info btn-draggable" ng-repeat="item in list2" ng-show="item.title" data-drag="@{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: @{{$index}},animate:true}" data-toggle="modal" data-target="#commentlist2@{{$index}}" draggable>@{{item.title}}
                   <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                 </div>
               </div>
@@ -80,7 +80,7 @@
                 <div class="btn pink btn-draggable" ng-repeat="pb in list3" ng-show="pb.description" data-drag="@{{pb.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list3" jqyoui-draggable="{index: @{{$index}},animate:true}">@{{pb.description}}
                   <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                 </div>
-                <div class="btn btn-info btn-draggable" ng-repeat="item in list3" ng-show="item.title" data-drag="@{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list3" jqyoui-draggable="{index: @{{$index}},animate:true}" data-toggle="modal" data-target="#comment">@{{item.title}}
+                <div class="btn btn-info btn-draggable" ng-repeat="item in list3" ng-show="item.title" data-drag="@{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list3" jqyoui-draggable="{index: @{{$index}},animate:true}" data-toggle="modal" data-target="#commentlist3@{{$index}}">@{{item.title}}
                   <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                 </div>
               </div>
@@ -106,7 +106,65 @@
                     <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                     <div class="comment">@{{commenting.comment}}</div>
                   </div>
-                  <form ng-submit="addComment($index)" style="margin-top:2%;">
+                  <form ng-submit="addCommentlist1($index)" style="margin-top:2%;">
+                    <input type="text" class="form-control"  size="30" ng-model="item.comment"
+                  placeholder="Write a comment..." style="width:80%; display:inline;">
+                    <input type="hidden" ng-model="item.comment" ng-init="email='{{$email}}'" name="email" placeholder="email">  
+                    <button class="btn pink" type="submit" >Comment</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div ng-repeat="item in list2" ng-show="item.title"  ng-model="list2">
+          <div class="modal fade" id="commentlist2@{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title" id="myModalLabel">@{{item.title}}</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="concrete" ng-repeat="commenting in item.comments"  data-toggle="modal" data-target="#comment">
+                    <b>@{{commenting.email}} says:</b>
+                    <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
+                    <div class="comment">@{{commenting.comment}}</div>
+                  </div>
+                  <form ng-submit="addCommentlist2($index)" style="margin-top:2%;">
+                    <input type="text" class="form-control"  size="30" ng-model="item.comment"
+                  placeholder="Write a comment..." style="width:80%; display:inline;">
+                    <input type="hidden" ng-model="item.comment" ng-init="email='{{$email}}'" name="email" placeholder="email">  
+                    <button class="btn pink" type="submit" >Comment</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div ng-repeat="item in list3" ng-show="item.title"  ng-model="list3">
+          <div class="modal fade" id="commentlist3@{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title" id="myModalLabel">@{{item.title}}</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="concrete" ng-repeat="commenting in item.comments"  data-toggle="modal" data-target="#comment">
+                    <b>@{{commenting.email}} says:</b>
+                    <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
+                    <div class="comment">@{{commenting.comment}}</div>
+                  </div>
+                  <form ng-submit="addCommentlist3($index)" style="margin-top:2%;">
                     <input type="text" class="form-control"  size="30" ng-model="item.comment"
                   placeholder="Write a comment..." style="width:80%; display:inline;">
                     <input type="hidden" ng-model="item.comment" ng-init="email='{{$email}}'" name="email" placeholder="email">  

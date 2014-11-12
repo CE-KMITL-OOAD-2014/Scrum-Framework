@@ -25,15 +25,24 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                 };
 
 
-                  $scope.addComment = function($index) {
-                   // alert($scope.list1[$index].drag);
-               //    alert($scope.list1[$index].comment);
+                  $scope.addCommentlist1 = function($index) {
                    var temp = [{'comment':$scope.list1[$index].comment , 'email':$scope.email}];
-                  //  $scope.list1[$index].splice($index, 0, temp);
                     $scope.list1[$index].comments.push({comment:$scope.list1[$index].comment , email:$scope.email});
-                     console.log($scope.list1[$index]);
-                    //$scope.comments.push({title:$scope.comment, email:$scope.email});
                     $scope.list1[$index].comment = '';
+                    $scope.dropCallbacklist();
+                };
+
+                $scope.addCommentlist2 = function($index) {
+                   var temp = [{'comment':$scope.list2[$index].comment , 'email':$scope.email}];
+                    $scope.list2[$index].comments.push({comment:$scope.list2[$index].comment , email:$scope.email});
+                    $scope.list2[$index].comment = '';
+                    $scope.dropCallbacklist();
+                };
+
+                $scope.addCommentlist3 = function($index) {
+                   var temp = [{'comment':$scope.list3[$index].comment , 'email':$scope.email}];
+                    $scope.list3[$index].comments.push({comment:$scope.list3[$index].comment , email:$scope.email});
+                    $scope.list3[$index].comment = '';
                     $scope.dropCallbacklist();
                 };
              
