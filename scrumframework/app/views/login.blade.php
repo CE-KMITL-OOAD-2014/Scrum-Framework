@@ -49,7 +49,7 @@
                   <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="btn btn-info btn-draggable" ng-repeat="item in list1" ng-show="item.title" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: @{{$index}},animate:true}" data-toggle="modal" data-target="#commentlist1@{{$index}}" draggable>@{{item.title}}
-                  <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
+                  <button type="button" class="close" ng-click="removeTaskboardlist1($index)"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                 </div>
               </div>
               <form ng-submit="addTodo()">
@@ -68,7 +68,7 @@
                   <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="btn btn-info btn-draggable" ng-repeat="item in list2" ng-show="item.title" data-drag="@{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: @{{$index}},animate:true}" data-toggle="modal" data-target="#commentlist2@{{$index}}" draggable>@{{item.title}}
-                  <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
+                  <button type="button" class="close" ng-click="removeTaskboardlist2($index)"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@
                   <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="btn btn-info btn-draggable" ng-repeat="item in list3" ng-show="item.title" data-drag="@{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list3" jqyoui-draggable="{index: @{{$index}},animate:true}" data-toggle="modal" data-target="#commentlist3@{{$index}}">@{{item.title}}
-                  <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
+                  <button type="button" class="close" ng-click="removeTaskboardlist3($index)"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                 </div>
               </div>
             </div>
@@ -103,7 +103,7 @@
                 <div class="modal-body">
                   <div class="concrete" ng-repeat="commenting in item.comments"  data-toggle="modal" data-target="#comment">
                     <b>@{{commenting.email}} says:</b>
-                    <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" ng-click="removeCommentlist1($index, $parent.$index)"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                     <div class="comment">@{{commenting.comment}}</div>
                   </div>
                   <form ng-submit="addCommentlist1($index)" style="margin-top:2%;">
@@ -132,7 +132,7 @@
                 <div class="modal-body">
                   <div class="concrete" ng-repeat="commenting in item.comments"  data-toggle="modal" data-target="#comment">
                     <b>@{{commenting.email}} says:</b>
-                    <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" ng-click="removeCommentlist2($index, $parent.$index)"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                     <div class="comment">@{{commenting.comment}}</div>
                   </div>
                   <form ng-submit="addCommentlist2($index)" style="margin-top:2%;">
@@ -161,7 +161,7 @@
                 <div class="modal-body">
                   <div class="concrete" ng-repeat="commenting in item.comments"  data-toggle="modal" data-target="#comment">
                     <b>@{{commenting.email}} says:</b>
-                    <button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" ng-click="removeCommentlist3($index, $parent.$index)"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button>
                     <div class="comment">@{{commenting.comment}}</div>
                   </div>
                   <form ng-submit="addCommentlist3($index)" style="margin-top:2%;">

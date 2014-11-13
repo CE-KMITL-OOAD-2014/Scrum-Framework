@@ -24,6 +24,21 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                     $scope.dropCallbacklist();
                 };
 
+                $scope.removeTaskboardlist1 = function($index){
+                    $scope.list1.splice($index,1);
+                    $scope.dropCallbacklist();
+                };
+
+                 $scope.removeTaskboardlist2 = function($index){
+                    $scope.list2.splice($index,1);
+                    $scope.dropCallbacklist();
+                };
+
+                  $scope.removeTaskboardlist3 = function($index){
+                    $scope.list3.splice($index,1);
+                    $scope.dropCallbacklist();
+                };
+
 
                   $scope.addCommentlist1 = function($index) {
                    var temp = [{'comment':$scope.list1[$index].comment , 'email':$scope.email}];
@@ -43,6 +58,11 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                    var temp = [{'comment':$scope.list3[$index].comment , 'email':$scope.email}];
                     $scope.list3[$index].comments.push({comment:$scope.list3[$index].comment , email:$scope.email});
                     $scope.list3[$index].comment = '';
+                    $scope.dropCallbacklist();
+                };
+
+                $scope.removeCommentlist1 = function($index, $parent){
+                    $scope.list1[$parent].comments.splice($index,1);
                     $scope.dropCallbacklist();
                 };
              
