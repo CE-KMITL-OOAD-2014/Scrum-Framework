@@ -9,6 +9,17 @@
                 color: #fff;
                 background-color:#F4726D;
             }
+            .concrete{
+                padding : 2%;
+                background-color:#e3e3e3;
+                border-bottom: 1px solid #dcdcdc;
+            }
+            .comment{
+                padding : 2%;
+                background-color:#fff;
+                border-radius: 3px;
+                margin-top:1%;    
+            }
             .pink:hover{
                 color: #fff;
                 background-color:#FA726D;
@@ -52,7 +63,7 @@
                         </ul>
                         <!--<li><a>Username</a></li>-->
                     </li>
-                    <li><a href="#">{{ Session::get('email')}}</a></li>
+                    <li><a href="#">{{{ $email or Session::get('email')}}}</a></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"> Sign out</i></a></li>
                 </ul> 
             </div><!-- /.navbar-collapse -->				
