@@ -65,6 +65,16 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                     $scope.list1[$parent].comments.splice($index,1);
                     $scope.dropCallbacklist();
                 };
+
+                   $scope.removeCommentlist2 = function($index, $parent){
+                    $scope.list2[$parent].comments.splice($index,1);
+                    $scope.dropCallbacklist();
+                };
+
+                   $scope.removeCommentlist3 = function($index, $parent){
+                    $scope.list3[$parent].comments.splice($index,1);
+                    $scope.dropCallbacklist();
+                };
              
                 $scope.archive = function() {
                     var oldTodos = $scope.todos;

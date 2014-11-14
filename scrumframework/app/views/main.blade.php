@@ -7,6 +7,12 @@
   		</div>
 		<button type="submit" class="btn primary">Create Team</button>
 	</form>
+	<ul>
+		@foreach($errors->all() as $message)
+			<li>{{$message}}</li>
+		@endforeach
+	</ul>
+
 	<div ng-controller="TodoController">
 		<div class="col-md-12 btn btn-primary" ng-repeat="tname in data1" ng-show="tname.name" ng-model="data1" style="margin-left:1%;">
 			
@@ -47,13 +53,6 @@
 		</div>
 	</div>
 </div>
-
-	<ul>
-		@foreach($errors->all() as $message)
-			<li>{{$message}}</li>
-		@endforeach
-	</ul>
-
 
 @stop 
 

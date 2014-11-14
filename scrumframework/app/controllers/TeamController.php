@@ -7,22 +7,6 @@ class TeamController extends \BaseController {
      * @return Response
      */
 
-    public function index()
-    {
-        //
-    }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
 
     /**
      * Store a newly created resource in storage.
@@ -34,14 +18,15 @@ class TeamController extends \BaseController {
         $data = Input::all();
         $name = Input::get('teamname');
         $rules = array(
-            'teamname' => 'required|min:3|max:64|unique:teams'
+            'teamname' => 'required|min:3|max:64|unique:teams,name'
         );
         $validator = Validator::make($data, $rules);
 
+     //   return json_encode($validator);
         if($validator->fails())
         {
             $messages = $validator->messages();
-            return Redirect::to('/')->withErrors($validator);
+            return Redirect::to('main')->withErrors($validator);
         }
         else
         {
