@@ -3,7 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="{{url('media/css/bootstrap.min.css');}}">
     <link rel="stylesheet" type="text/css" href="{{url('media/font-awesome/css/font-awesome.min.css');}}">
 	<body>
-			<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom:0px;">
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 				<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">

@@ -48,21 +48,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="{{ url('/main') }}">Home</a></li>
-                    <li><a href="#">What's Scrum Framework</a></li>						
-                    <li><a href="#">About</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">		
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">+Board <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Board1</a></li>
-                            <li><a href="#">Board2</a></li>
-                            <li><a href="#">Board3</a></li>
-                            <li class="divider"></li>
-                            <center><button type="button" class="btn pink"  data-toggle="modal" data-target="#myModal">Add new board</button></center>
-                        </ul>
-                        <!--<li><a>Username</a></li>-->
-                    </li>
+                    <li type="button" class="btn pink" style="margin-top:1%;"  data-toggle="modal" data-target="#myModal">Add new board</li>
                     <li><a href="#">{{{ $email or Session::get('email')}}}</a></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"> Sign out</i></a></li>
                 </ul> 
@@ -116,5 +104,10 @@
     <script src="{{url('media/js/angularjs/scrumframework.js');}}"></script>
     <script src="{{url('media/js/angularjs/selectteam.js');}}"></script>
     <script src="{{url('media/js/angularjs/showteam.js');}}"></script>
+    <script>
+    $(".nav a").on("click", function(){
+    $(".nav").find(".active").removeClass("active");
+    $(this).parent().addClass("active");
+    </script>
 </body>
 </html>
