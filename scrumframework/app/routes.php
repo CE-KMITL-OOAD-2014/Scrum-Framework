@@ -10,24 +10,14 @@
 |
  */
 
-
-//Blade::setContentTags('<%', '%>');			// for variables and all things Blade
-//Blade::setEscapedContentTags('<%%', '%%>'); 	// for escaped data
-
 //HOME PAGE.
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showhome'));
 
-//MEANING PAGE.
-Route::get('/meaning', array('as' => 'mean', 'uses' => 'HomeController@showMean'));
-
-//ABOUT PAGE.
-Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
+//SIGN UP.
+Route::post('/signup', 'FormController@index');
 
 //[POST]MAIN PAGE WHEN LOGEDIN.
-Route::post('/main', function(){
-	$login = new LoginController;
-	return $login->index();
-});
+Route::post('/main', 'LoginController@index');
 
 //[GET]MAIN PAGE WHEN LOGEDIN.
 Route::get('/main', array('as' => 'main',
@@ -40,142 +30,46 @@ Route::get('/main', array('as' => 'main',
 	}
 ));
 
-// SHOW ALL TASK BOARD IN JSON FORMAT.
-Route::get('/gettaskboard', function(){
-	$board = new TaskboardController;
-	return $board->getTaskboard();
-});
 
 //CREATE BOARD.
-Route::post('/taskboard', array(
-	'before' => 'auth',function()
-	{
-		//$boardname = Input::get('boardname');
-        $taskboardController = new TaskboardController();
-		//show email @ navbar
-		// $email = Auth::user()->email;
-		// Session::flash('email',$email);
-		// Session::flash('boardname',$boardname);
-		// return View::make('login')->withInput(Input::except('password'));
-        return $taskboardController->index();
-	}
-));
+Route::post('taskboard',array('before' => 'auth' ,'uses'=>'TaskboardController@create'));
 
-// ACCESS BOARD.
-Route::get('taskboard/{id}/{bid}', array(
-	'before' => 'auth', function($id, $bid)
-{
-	$taskboardController = new TaskboardController;
-    return $taskboardController->getTaskboard($id, $bid);
-}));
-
+//ACCESS BOARD.
+Route::get('taskboard/{id}/{bid}',array('before' => 'auth' ,'uses'=>'TaskboardController@getTaskboard'));
 
 //Recieve Board
 Route::post('/recievedboard', 'SprintnameController@store');
 
-
-
 //DELETE BOARD.
-Route::get('taskboard/{id}/{bid}/delete', array(
-	'before' => 'auth', function($id, $bid)
-{
-	$taskboardController = new TaskboardController;
-    return $taskboardController->deleteTaskboard($id, $bid);
-}));
+Route::get('taskboard/{id}/{bid}/delete',array('before' => 'auth' ,'uses'=>'TaskboardController@deleteTaskboard'));
 
 //DELETE PO.
-Route::get('/deletetaskboard/po/{tid}/{poname}', array(
-	'before' => 'auth', function($tid, $poname)
-{
-	$teamController = new TeamController;
-    return $teamController->deletepo($tid, $poname);
-}));
+Route::get('/deletetaskboard/po/{tid}/{poname}',array('before' => 'auth' ,'uses'=>'TeamController@deletepo'));
 
 //DELETE TM.
-Route::get('/deletetaskboard/tm/{tid}/{tmname}', array(
-	'before' => 'auth', function($tid, $tmname)
-{
-	$teamController = new TeamController;
-    return $teamController->deletetm($tid, $tmname);
-}));
+Route::get('/deletetaskboard/tm/{tid}/{tmname}',array('before' => 'auth' ,'uses'=>'TeamController@deletetm'));
 
 //ADD TEAM
-Route::post('/addteam', array(
-	'before' => 'auth',function()
-	{
-        $teamController = new TeamController();
-        return $teamController->store();
-	}
-));
+Route::post('/addteam', array('before' => 'auth' ,'uses'=>'TeamController@store'));
 
 //ADD USER IN TEAM.
-Route::post('/adduser', array(
-	'before' => 'auth',function()
-	{
-         $teamController = new TeamController;
-         return $teamController->adduser();
-	}
-));
-
-//INPUT SPRINT NAME.
-Route::post('/taskboard/{id}/inputsprintname', array(
-	'before' => 'auth', function($id=null)
-	{
-		$sprintnameController = new SprintnameController;
-		return $sprintnameController->index();
-		//$sprintname = Input::get('sprintname');
-		//return 'sprintname = '.$sprintname;
-	}
-));
-
-// WHEN EDIT SPRINT NAME.
-Route::post('taskboard/{id}/inputemail', array(
-	'before' => 'auth', function($id=null)
-	{
-		$emailmember = new EmailmemberController;
-		return $emailmember->index($id);
-	}
-));
+Route::post('/adduser', array('before' => 'auth' ,'uses'=>'TeamController@adduser'));
 
 //GET BOARD IN JSON FORMAT
-Route::get('/gettesttaskboard', 'TaskboardController@getTaskboard');
+Route::get('/gettesttaskboard', array('before' => 'auth' ,'uses'=>'TaskboardController@getTaskboard'));
 
 //GET BOARD IN JSON FORMAT
 Route::get('/gettestuser', 'LoginController@userToJSON');
 
-//GET TEAM IN JSON FORMAT
-Route::get('/gettestteam', 'TeamController@getTeam');
-
-
-//GET TEAM IN JSON FORMAT
-Route::get('/getboard/{v}/{k}',array('as' => 'getboard', function($v,$k)
-{
-	$sprintnameController = new SprintnameController;
-	return $sprintnameController->getjson();
-}));
-
-
-Route::get('/testq', 'TaskboardController@getAuthorizedUser');
-
+//LOG OUT.
 Route::get('/logout', function()
 {
 	Auth::logout();
 	return Redirect::to('/');
-	//return Response::make('You are now logged out. :(');
 });
 
-Route::post('/signup', function(){
-	$form = new FormController;
-	return $form->index();
-});
-
-Route::get('/inside', function()
-{
-	return "Hello inside";
-});
+//Page not found.
 Route::get('/404', array('as' => '404', function()
 {
 	return App::abort(404);
 }));
-
-

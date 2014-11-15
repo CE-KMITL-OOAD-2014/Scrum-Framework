@@ -1,7 +1,8 @@
 <html>
 	<head>
-	<link rel="stylesheet" type="text/css" href="{{url('media/css/bootstrap.min.css');}}">
-    <link rel="stylesheet" type="text/css" href="{{url('media/font-awesome/css/font-awesome.min.css');}}">
+		<link rel="stylesheet" type="text/css" href="{{url('media/css/bootstrap.min.css');}}">
+    	<link rel="stylesheet" type="text/css" href="{{url('media/font-awesome/css/font-awesome.min.css');}}">
+	</head>
 	<body>
 			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 				<div class="container-fluid">

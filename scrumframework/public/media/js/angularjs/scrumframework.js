@@ -1,17 +1,9 @@
 angular.module('scrumFramework',  ['ngDragDrop'])
     .controller('TodoController', ['$scope','$http', function($scope, $http) {
-        $http.get('/gettaskboard').
+        $http.get('/gettesttaskboard').
             success(function(data, status, headers, config) {
                 $scope.data1 = data;
-              //  $scope.boardid = "555";
-         //       $scope.taskboards = [];
-    //            alert($scope.data1);
-          //     $scope.data2 = data.taskboards;
-             //   alert(data2);
-    //             alert('5555');
-                  //alert(data[0].name);
-          //    alert($scope.boardname[1].taskboards[0].name);
-            //  alert($scope.boardname[2].name);
+            
                 $scope.addProductbacklog = function() {
                     $scope.list0.push({description:$scope.addTitle, 'drag': true});
                     $scope.addTitle = '';
@@ -91,9 +83,6 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                 $scope.onDrop = function($event,$data,array){
                     array.push($data);
                 };
-
-
-             //   var res = $http.post('/recievedboard', test);
                
            
                 angular.forEach($scope.data1, function(item, key) {
@@ -116,11 +105,6 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                 $scope.list2 = $scope.objboard.list2;
                 $scope.list3 = $scope.objboard.list3;
 
-            //    alert($scope.nowteam.taskboards[0].name);
-            //    alert($scope.data1[0]._id);
-                //alert($scope.boardid);
-          //      alert($scope.teamid);
-     //           alert($scope.objnowteam.taskboards[0].list1);
 
                 var currentteam = $scope.idnowteam;
                 var curentboard = $scope.boardid;
@@ -135,12 +119,6 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                     $http.post('/recievedboard', allsend);
                 };
 
-                // $http({
-                //     method: 'POST',
-                //     url: '/recievedboard',
-                //     data: $scope.nowteam
-                // }).success(function () {});
-
             }).
 
 
@@ -148,8 +126,6 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                 alert('error');
             });
 
-
-            //$http.post('/recievecboard', ).success(successCallback);
     }]);
 
 
