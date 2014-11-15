@@ -20,10 +20,7 @@ class TeamController extends \BaseController {
         else
         {
             $team = new Team;
-            $team->name = Input::get('teamname');
-            $team->master =  Auth::user()->email;
-            $team =  Auth::user()->teams()->save($team);
-            $team->save();
+            $team->store($data);
             return Redirect::route('main');
         }
     }

@@ -25,20 +25,11 @@ class TaskboardController extends \BaseController {
         else{
             //Create new board. 
             $taskboard = new Taskboard;
-            $taskboard->name = Input::get('boardname');
-            $taskboard->teams = Input::get('team');
-            $taskboard->list0 = array();
-            $taskboard->list1 = array();
-            $taskboard->list2 = array();
-            $taskboard->list3 = array();
-
-            //Find teams that map team root.
-            $team = Team::find($taskboard->teams);
-
-            //Save taskboards into team.
-            $taskboard = $team->taskboards()->save($taskboard);
-            $taskboard->save();
-            return Redirect::route('main');
+            if($taskboard->store($data)){
+                return Redirect::route('main');
+            }else{
+                return "Can't add board.";
+            }
         }
     }
 
@@ -72,9 +63,7 @@ class TaskboardController extends \BaseController {
     {
         //DELETE FROM TASKBOARDS COLLECTIONS.
         $deletedtaskboard = Team::find($tid);
-        $deletedtaskboard = $deletedtaskboard->taskboards()->find($bid);
-        $deletedtaskboard->delete();
-
+        $deletedtaskboard->deleteboard($bid);
         return Redirect::route('main');
     }
 

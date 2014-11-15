@@ -7,6 +7,7 @@ class Team extends Eloquent {
     protected $collection = 'teams';
     protected $connection = 'mongodb';
 
+
     public function teamMembers()
     {
         return $this->belongsToMany('User', 'email', 'teams', 'teamMembers');
@@ -147,5 +148,13 @@ class Team extends Eloquent {
             return true;
         }
         return false;
+    }
+
+    public function store($data)
+    {
+        $this->name = $data['teamname'];
+        $this->master =  Auth::user()->email;
+        Auth::user()->teams()->save($this);
+        $this->save();
     }
 }

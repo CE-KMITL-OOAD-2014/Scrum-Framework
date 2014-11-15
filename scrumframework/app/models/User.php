@@ -19,7 +19,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     protected $collection = 'users';
     protected $connection = 'mongodb';
 
-
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -68,5 +67,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         unset($team[$key]);
         $this->teams = $team;
         $this->save(); 
+    }
+
+    public function store($data)
+    {
+        $this->email = $data['email'];
+        $this->password = Hash::make($data['password']);
+        $this->save();
     }
 }
