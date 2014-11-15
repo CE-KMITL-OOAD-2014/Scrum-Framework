@@ -2,63 +2,62 @@
 
 class TaskboardController extends \BaseController {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
+    public function create()
     {
+        //Get inout data.
         $data = Input::all();
         $boardname = Input::get('boardname');
         $team = Input::get('team');
+
+        //Create rule for crate teams.
         $rules = array(
             'boardname' => 'required|min:1|max:32'
         );
 
+        //Make validator
         $validator = Validator::make($data, $rules);
 
+        //If fails redirect to /
         if($validator->fails()) {
             $messages = $validator->messages();
             return Redirect::to('/')->withErrors($validator);
         }
-
-        else
-        {
+        else{
+            //Create new board. 
             $taskboard = new Taskboard;
             $taskboard->name = Input::get('boardname');
-
             $taskboard->teams = Input::get('team');
             $taskboard->list0 = array();
             $taskboard->list1 = array();
             $taskboard->list2 = array();
             $taskboard->list3 = array();
+
             //Find teams that map team root.
             $team = Team::find($taskboard->teams);
+
             //Save taskboards into team.
             $taskboard = $team->taskboards()->save($taskboard);
-
             $taskboard->save();
-
             return Redirect::route('main');
         }
     }
 
-  public function processGetTaskboard($tid=null, $bid=null)
-     {
+    //Get Boardname in Team.
+    public function processGetTaskboard($tid=null, $bid=null)
+    {
         $team = Team::find($tid);
         if($team===null){return 'No Team Found.';}
         $team = $team->taskboards()->find($bid); 
         $boardname = $team['name'];
         return $boardname; 
-     }
+    }
 
+    //Default access => Get board in JSON format, Have board id => show view.
     public function getTaskboard($tid=null, $bid=null)
     {
         if($bid==null)
         {
             $taskboards = Auth::user()->teams()->get();
-
             return Response::json($taskboards->toArray());
         }
         else
@@ -76,79 +75,7 @@ class TaskboardController extends \BaseController {
         $deletedtaskboard = $deletedtaskboard->taskboards()->find($bid);
         $deletedtaskboard->delete();
 
-        //DELETE TASKBOARDS FIELD FROM USER COLLECTIONS.
- //       $user = Auth::user();
- //       $user->pull('taskboards',$id);
-
         return Redirect::route('main');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

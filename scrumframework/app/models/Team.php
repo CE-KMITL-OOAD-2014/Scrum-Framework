@@ -7,11 +7,6 @@ class Team extends Eloquent {
     protected $collection = 'teams';
     protected $connection = 'mongodb';
 
-    public function getTeam()
-    {
-        return $this;
-    }
-
     public function teamMembers()
     {
         return $this->belongsToMany('User', 'email', 'teams', 'teamMembers');
@@ -22,6 +17,7 @@ class Team extends Eloquent {
         return $this->embedsMany('Taskboard');
     }
 
+    //Function for add product owner. 
     public function addpo($name)
     {
         if($this->po==null){
@@ -36,8 +32,9 @@ class Team extends Eloquent {
         return true;
     }
 
-     public function addtm($name)
-     {
+    //Function for add Teammember.
+    public function addtm($name)
+    {
         if($this->tm==null){
             $this->tm = array($name);
         }
@@ -50,28 +47,26 @@ class Team extends Eloquent {
         return true;
     }
 
+    //Function for checkuser.
     public function checkuser($name)
     {
         $check = User::where('email',$name)->get();
-        if(User::where('email',$name)->get()!="[]")
-        {
+        if(User::where('email',$name)->get()!="[]"){
             return true;
         }
-        else
-        {
+        else{
             return false;
         }
     }
 
+    //Add team in User Collection.
     public function addTeaminUsers($teammember, $teamid)
     {
         $user = User::where('email',$teammember)->first();
-        if(!array_key_exists('teams', $user))
-        {
+        if(!array_key_exists('teams', $user)){
             $user->teams = array($teamid);
         }
-        else
-        {
+        else{
             $temp = $user->teams;
             array_push($temp, $teamid);
             $user->teams = $temp;  
@@ -79,6 +74,7 @@ class Team extends Eloquent {
         $user->save();
     }
 
+    //Add User in teams Collection.
     public function addUserInteamMembers($teammember, $teamid)
     {
         //Add teamMembers field.
@@ -89,6 +85,7 @@ class Team extends Eloquent {
         $this->save();
     }
 
+    //Delete Prooduct owner.
     public function deletepo($poname)
     {
         $po = $this->po;
@@ -98,7 +95,8 @@ class Team extends Eloquent {
         $this->save();
     }
 
-     public function deletetm($tmname)
+    //Delete TeamMember.
+    public function deletetm($tmname)
     {
         $tm = $this->tm;
         $key = array_search($tmname,$tm);
@@ -107,7 +105,8 @@ class Team extends Eloquent {
         $this->save();
     }
 
-      public function deleteInteamMembers($email)
+    //Delete email => teamMember feild in teams Collection.     
+    public function deleteInteamMembers($email)
     {
         $members = $this->teamMembers;
         $user = User::where('email',$email)->first();
@@ -117,35 +116,34 @@ class Team extends Eloquent {
         $this->save();
     }
 
+    //Boolean for find this email is Product Owner?
     public function findInPo($email)
     {
         $po = $this->po;
-        if($key = array_search($email,$po) !== false)
-        {
+        if($key = array_search($email,$po) !== false){
             return true;
         }
         return false;
     }
 
+    //Boolean for find this email is Team Member?
      public function findInTm($email)
     {
         $tm = array();
-        if($this->tm != null)
-        {
+        if($this->tm != null){
             $tm = $this->tm;
         }
-        if($key = array_search($email,$tm) !== false)
-        {
+        if($key = array_search($email,$tm) !== false){
             return true;
         }
         return false;
     }
 
+     //Boolean for find this email is Scrum Master?
      public function findInMaster($email)
     {
         $tm = $this->master;
-        if($tm === $email)
-        {
+        if($tm === $email){
             return true;
         }
         return false;
