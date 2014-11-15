@@ -7,19 +7,24 @@
   		</div>
 		<button type="submit" class="btn primary">Create Team</button>
 	</form>
+	<ul>
+		@foreach($errors->all() as $message)
+			<li>{{$message}}</li>
+		@endforeach
+	</ul>
+
 	<div ng-controller="TodoController">
-		<div class="col-md-12 btn btn-primary" ng-repeat="tname in data1" ng-show="tname.name" ng-model="data1" style="margin-left:1%;">
+		<div class="col-md-12" ng-repeat="tname in data1" ng-show="tname.name" ng-model="data1" style=" margin-bottom:1%;">
 			
-			<div style="color:#fff; text-decoration:none;">
-					<a href="/taskboard/@{{tname._id}}/delete"><button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button></a>
-				@{{tname.name}}
+			<div style="color:#5e5e5e; text-decoration:none; margin-bottom:1%;">
+				<span style="font-size:150%;"><i class="fa fa-users"></i> <b>@{{tname.name}}</b></span>
 			</div>
 				
-			<div class="btn pink" ng-repeat="bname in tname.taskboards" ng-show="bname.name" ng-model="data1" style="margin-left:1%;">
-				<a  href="/taskboard/@{{tname._id}}/@{{bname._id.$id}}"  style="color:#fff; text-decoration:none;">@{{bname.name}}	</a>
+			<div class="btn btn-info" ng-repeat="bname in tname.taskboards" ng-show="bname.name" ng-model="data1" style="margin-left:1%; margin-bottom:1%;">
+				<a href="/taskboard/@{{tname._id}}/@{{bname._id.$id}}"  style="color:#fff; text-decoration:none; height:50%;"><span style="font-size:200%;"><i class="fa fa-trello"></i> @{{bname.name}}	</span></a>
 				<a href="/taskboard/@{{tname._id}}/@{{bname._id.$id}}/delete"><button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button></a>
 			</div>
-			<div class="col-md-4" style="margin-top:2%; margin-bottom:2%;">
+			<div class="col-md-12" style="margin-top:2%; margin-bottom:2%;">
 				<ul>
 					<li class="btn btn-warning">Scrummaster : @{{tname.master}}</li>
 				</ul>
@@ -34,7 +39,7 @@
 					</li>
 				</ul>
 				<form role="form" method="post" action="{{url('/adduser')}}"> 
-					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="emailmember" style="display:inline; width:50%;" required> 
+					<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="emailmember" style="display:inline; width:20%;" required> 
                     <label for="BoardName">Select Role</label> 
                     <select class="selectpicker btn btn-warning" name="role">
                     	<option value="po">Product Owner</option>
@@ -47,13 +52,6 @@
 		</div>
 	</div>
 </div>
-
-	<ul>
-		@foreach($errors->all() as $message)
-			<li>{{$message}}</li>
-		@endforeach
-	</ul>
-
 
 @stop 
 

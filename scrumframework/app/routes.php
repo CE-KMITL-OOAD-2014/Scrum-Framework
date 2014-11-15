@@ -51,7 +51,6 @@ Route::post('/taskboard', array(
 	'before' => 'auth',function()
 	{
 		//$boardname = Input::get('boardname');
-		
         $taskboardController = new TaskboardController();
 		//show email @ navbar
 		// $email = Auth::user()->email;
@@ -69,6 +68,12 @@ Route::get('taskboard/{id}/{bid}', array(
 	$taskboardController = new TaskboardController;
     return $taskboardController->getTaskboard($id, $bid);
 }));
+
+
+//Recieve Board
+Route::post('/recievedboard', 'SprintnameController@store');
+
+
 
 //DELETE BOARD.
 Route::get('taskboard/{id}/{bid}/delete', array(
@@ -140,6 +145,14 @@ Route::get('/gettestuser', 'LoginController@userToJSON');
 
 //GET TEAM IN JSON FORMAT
 Route::get('/gettestteam', 'TeamController@getTeam');
+
+
+//GET TEAM IN JSON FORMAT
+Route::get('/getboard/{v}/{k}',array('as' => 'getboard', function($v,$k)
+{
+	$sprintnameController = new SprintnameController;
+	return $sprintnameController->getjson();
+}));
 
 
 Route::get('/testq', 'TaskboardController@getAuthorizedUser');
