@@ -3,24 +3,6 @@
 <div class="col-md-12">
   <div class="col-md-offset-4 col-md-4" style="margin-top:2%; margin-bottom:2%;">
     <h3 style="display:inline;">Boardname :  {{{ $boardname or Session::get('boardname') }}} </h3>
-      <form role="form" method="post" action="<?php if(isset($boardid)) {echo $boardid.'/inputsprintname';} ?>">
-        <div class="input-group">
-          <div class="input-group-btn">
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                Sprint 1 <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Sprint2</a></li>
-                <li><a href="#">Sprint3</a></li>
-                <li><a href="#">Sprint4</a></li>
-              </ul>
-            </div>
-          </div>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Default Sprint" name="sprintname" style="display:inline; width:50%;"required> 
-          <button type="submit" class="btn btn-success" >Save !</button>
-        </div>
-      </form>
   </div>
 </div>
 

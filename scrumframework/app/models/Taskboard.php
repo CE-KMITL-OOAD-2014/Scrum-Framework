@@ -33,6 +33,32 @@ class Taskboard extends Eloquent {
         $this->list3 = $data['list3'];
         $this->save();
     }
+
+    public function store($data){
+        $this->name = $data['boardname'];
+        $this->teams = $data['team'];
+        $this->list0 = array();
+        $this->list1 = array();
+        $this->list2 = array();
+        $this->list3 = array();
+
+        //Find teams that map team root.
+        $team = Team::find($this->teams);
+
+        if($team == null)
+        {
+            return false;
+        }
+        //Save taskboards into team.
+        $team->taskboards()->save($this);
+        $this->save();
+        return true;
+    }
+
+    public function deleteboard($bid){
+        $deletedtaskboard->taskboards()->find($bid);
+        $this->delete();
+    }
 }
 
 
