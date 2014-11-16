@@ -6,16 +6,12 @@ class RouteTest extends TestCase {
     // {
     //     //
     // }
-    public function testRouteMeaning()
+    public function testRouteMain()
     {
-        $this->call('GET', '/meaning');
+        $this->call('GET', '/');
         $this->assertResponseOk();
     }
-    public function testRouteAbout()
-    {
-        $this->call('GET', '/about');
-        $this->assertResponseOk();
-    }
+   
     public function testRouteHome()
     {
         $this->call('GET', '/');

@@ -1,6 +1,6 @@
 angular.module('scrumFramework')
     .controller('ShowteamController', ['$scope','$http', function($scope, $http) {
-        $http.get('/gettestteam').
+        $http.get('/gettesttaskboard').
          
             success(function(data, status, headers, config) {    
             $scope.teams = data;
