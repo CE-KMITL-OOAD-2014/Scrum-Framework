@@ -16,6 +16,11 @@ angular.module('scrumFramework',  ['ngDragDrop'])
                     $scope.dropCallbacklist();
                 };
 
+                $scope.removeTaskboardlist0 = function($index){
+                    $scope.list0.splice($index,1);
+                    $scope.dropCallbacklist();
+                };
+
                 $scope.removeTaskboardlist1 = function($index){
                     $scope.list1.splice($index,1);
                     $scope.dropCallbacklist();

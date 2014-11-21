@@ -37,6 +37,13 @@ Route::post('taskboard',array('before' => 'auth' ,'uses'=>'TaskboardController@c
 //ACCESS BOARD.
 Route::get('taskboard/{id}/{bid}',array('before' => 'auth' ,'uses'=>'TaskboardController@getTaskboard'));
 
+//ACCESS BOARD JSON.
+Route::get('jsonboard/{id}/{bid}',array('before' => 'auth' ,'uses'=>'TaskboardController@getjsonboard'));
+
+//ACCESS TEAM JSON.
+Route::get('jsonteam/{id}',array('before' => 'auth' ,'uses'=>'TaskboardController@getjsonteam'));
+
+
 //Recieve Board
 Route::post('/recievedboard', 'SprintnameController@store');
 

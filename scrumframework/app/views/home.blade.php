@@ -1,11 +1,11 @@
 @extends('layouts.base')
 
 @section('body')
-	<div id="home" class="jumbotron" style="margin-top:0px; margin-bottom:0px; background: url('media/img/bg.jpg') center no-repeat #f4726d; height:90%; overflow:hidden position:relative;">
+	<div id="home" class="jumbotron" style="margin-top:0px; margin-bottom:0px; background: url('media/img/bg.jpg') center no-repeat #f4726d;  height:99%; overflow:hidden position:relative;">
 		<h1 style="color:#fff; text-align:center; ">Scrum Framework</h1>
 		<div class="col-md-5"  align="center" style="margin:0 auto; display:block; float:none;">
-			<button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#userSignup" style="width:30%; opacity: 0.9; background-color:#f4726d; color:#fff;">Sign up</button>
-			<button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#userLogin" style="width:30%; opacity: 0.8; background-color:#f4726d; color:#fff; margin-left:5%;">Login</a>
+			<button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#userSignup" style="width:30%; opacity: 0.7; background-color:#f4726d; color:#fff;">Sign up</button>
+			<button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#userLogin" style="width:30%; opacity: 0.7; background-color:#f4726d; color:#fff; margin-left:5%;">Login</a>
 		</div>
 		<ul class="col-sm-6 col-sm-offset-3 col-xs-offset-2" style="padding-left:5%; margin-top:5%; color:#fff;">
 			@foreach($errors->all() as $message)

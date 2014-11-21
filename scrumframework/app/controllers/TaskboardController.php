@@ -67,4 +67,19 @@ class TaskboardController extends \BaseController {
         return Redirect::route('main');
     }
 
+    public function getjsonboard($tid=null, $bid=null)
+    {
+        $taskboards = Auth::user()->teams()->get();
+        $team=$taskboards->find($tid);
+        $board = $team->taskboards->find($bid);
+        return Response::json($board);
+    }
+
+     public function getjsonteam($tid=null, $bid=null)
+    {
+        $taskboards = Auth::user()->teams()->get();
+        $team=$taskboards->find($tid);
+        return Response::json($team);;
+    }
+
 }

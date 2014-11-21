@@ -1,17 +1,22 @@
 @extends('layouts.loginlayout')
 @section('slidebar')
 <div class="col-md-12">
-	<form method="post" action="{{url('/addteam')}}">
-		<div class="col-xs-3">
-    		<input type="text" class="form-control" placeholder="Team name" name="teamname" required>
-  		</div>
-		<button type="submit" class="btn primary">Create Team</button>
-	</form>
-	<ul>
-		@foreach($errors->all() as $message)
-			<li>{{$message}}</li>
-		@endforeach
-	</ul>
+	<div class="col-md-6" style="background-color:#3498db; padding:2%; box-shadow: 10px 10px 5px #888888; margin-top:2%; margin-bottom:2%;">
+		<div class="col-md-12">
+			<span style="color:#fff;">Create new Team</span>
+		</div>	
+		<form method="post" action="{{url('/addteam')}}">
+			<div class="col-xs-7">
+	    		<input type="text" class="form-control" placeholder="Team name" name="teamname" required>
+	  		</div>
+			<button type="submit" class="btn primary">Create Team</button>
+		</form>
+		<ul>
+			@foreach($errors->all() as $message)
+				<li>{{$message}}</li>
+			@endforeach
+		</ul>
+	</div>
 
 	<div ng-controller="TodoController">
 		<div class="col-md-12" ng-repeat="tname in data1" ng-show="tname.name" ng-model="data1" style=" margin-bottom:1%;">
@@ -20,7 +25,7 @@
 				<span style="font-size:150%;"><i class="fa fa-users"></i> <b>@{{tname.name}}</b></span>
 			</div>
 				
-			<div class="btn btn-info" ng-repeat="bname in tname.taskboards" ng-show="bname.name" ng-model="data1" style="margin-left:1%; margin-bottom:1%;">
+			<div class="btn btn-info" ng-repeat="bname in tname.taskboards" ng-show="bname.name" ng-model="data1" style="margin-left:1%; margin-bottom:1%; box-shadow: 10px 10px 5px #888888;">
 				<a href="/taskboard/@{{tname._id}}/@{{bname._id.$id}}"  style="color:#fff; text-decoration:none; height:50%;"><span style="font-size:200%;"><i class="fa fa-trello"></i> @{{bname.name}}	</span></a>
 				<a href="/taskboard/@{{tname._id}}/@{{bname._id.$id}}/delete"><button type="button" class="close"><span aria-hidden="true">&nbsp;×</span><span class="sr-only">Close</span></button></a>
 			</div>
