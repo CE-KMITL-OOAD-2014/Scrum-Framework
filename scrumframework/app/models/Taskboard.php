@@ -55,10 +55,6 @@ class Taskboard extends Eloquent {
         return true;
     }
 
-    public function deleteboard($bid){
-        $deletedtaskboard->taskboards()->find($bid);
-        $this->delete();
-    }
 }
 
 

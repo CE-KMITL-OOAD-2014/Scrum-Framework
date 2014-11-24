@@ -157,4 +157,9 @@ class Team extends Eloquent {
         Auth::user()->teams()->save($this);
         $this->save();
     }
+
+     public function deleteboard($bid){
+        $deletedtaskboard = $this->taskboards->find($bid);
+        $deletedtaskboard->delete();
+    }
 }
